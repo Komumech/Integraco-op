@@ -3,12 +3,8 @@ body {
     margin: 0;
     font-family: 'Inter', sans-serif;
     background-color: #ffffff;
-}
-
-.container {
     position: relative;
     overflow-x: hidden;
-    background-color: #ffffff;
 }
 
 /* 2. SMOOTH SCROLL (LENIS) FIXES */
@@ -95,6 +91,7 @@ iframe {
     height: 250px;
     bottom: 10%;
     right: 15%;
+    border-radius: 16px;
     clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
     animation-delay: -10s;
 }
@@ -112,9 +109,8 @@ iframe {
 }
 
 .scroll-spacer {
-    height: 200vh; /* Length of the scroll animation */
+    height: 70vh; /* Length of the scroll animation */
     background-color: transparent;
-    cursor: grab;
 }
 
 .bubble-sticky-wrapper {
@@ -149,7 +145,6 @@ iframe {
     filter: url(#wobble-filter); 
     clip-path: circle(0vmax at 50% 50%); 
     will-change: clip-path;
-    transition: clip-path 0.15s ease-out;
     cursor: grab;
     
     /* This ensures the 'wobble' has room to vibrate outside the strict circle path */
@@ -196,6 +191,57 @@ iframe {
     background: #00c060; 
     bottom: -10%; right: -10%; 
 }
+
+
+.testimonial-stack {
+    top: 30px;
+    position: relative;
+    width: 100%;
+    z-index: 5;
+    max-width: 900px;
+    height: 80vh; /* Relative to viewport height */
+    margin: 30px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    will-change: transform;
+}
+
+.stacked-card {
+    position: absolute;
+    width: 600px;
+    z-index: 6;
+    /* Smooth out the JS updates */
+    transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.3s linear;
+    opacity: 0;
+    pointer-events: none; /* Prevents card from blocking scroll */
+}
+
+#testi-1 { 
+    top: 0; 
+    left: 10%; 
+    transform: rotate(-4deg) translateY(600px); /* Increased from 100 */
+}
+
+#testi-2 { 
+    top: 220px; 
+    left: 25%; 
+    transform: rotate(2deg) translateY(600px); /* Increased from 150 */
+}
+
+/* Reveal Classes (Triggered by Scroll) */
+.stacked-card.reveal {
+    opacity: 1;
+}
+
+#testi-1.reveal {
+    transform: rotate(-44deg) translateY(0);
+}
+
+#testi-2.reveal {
+    transform: rotate(22deg) translateY(0);
+}
+
 
 /* 7. RESPONSIVE ADJUSTMENTS */
 @media (max-width: 768px) {
