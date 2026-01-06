@@ -7,6 +7,7 @@ body {
     overflow-x: hidden;
 }
 
+
 /* 2. SMOOTH SCROLL (LENIS) FIXES */
 html.lenis, html.lenis body {
     height: auto;
@@ -55,6 +56,7 @@ iframe {
 
 /* 4. BACKGROUND FLOATING SHAPES (HERO/FEATURES) */
 .bg-elements {
+    overflow-x: hidden;
     position: absolute;
     top: 0;
     left: 0;
@@ -66,7 +68,7 @@ iframe {
 
 .shape {
     position: absolute;
-    background: linear-gradient(135deg, rgba(7, 104, 179, 0.1), rgba(0, 192, 96, 0.1));
+    background: linear-gradient(135deg, #0055af, rgba(0, 192, 96, 0.1));
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
@@ -207,6 +209,7 @@ iframe {
     will-change: transform;
 }
 
+
 .stacked-card {
     position: absolute;
     width: 600px;
@@ -242,9 +245,27 @@ iframe {
     transform: rotate(22deg) translateY(0);
 }
 
-
+.intro{
+    position: relative;
+    margin-top: 13rem;
+}
 /* 7. RESPONSIVE ADJUSTMENTS */
 @media (max-width: 768px) {
+    .intro{
+        margin-top: 2rem;
+    }
+    .testimonial-stack {
+        height: auto;
+        padding-bottom: 50px;
+    }
+    #testi-1, #testi-2 {
+        position: relative;
+        top: auto;
+        left: auto;
+        width: 90vw;
+        margin-bottom: 20px;
+        transform: none; /* Reset initial transform */
+    }
     .finance {
         flex-direction: column;
         align-items: center;

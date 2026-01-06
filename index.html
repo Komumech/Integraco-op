@@ -18,6 +18,7 @@
         scrolling="no"
             id="blond-hero"
             src=""
+            data-accent_color="0055af"
             data-base-url="https://komutheme2.vercel.app/project/public/snippets/blonde/hero.html"
             data-frame-id="blond-hero"
             data-headline="Building wealth through"
@@ -51,7 +52,7 @@
     data-stat3_num="100%" data-stat3_label="Community<br>Owned"
     data-bg_color="transparent"
     data-text_color="1a1a1a"
-    data-heading_color="0768b3"
+    data-heading_color="1a1a1a"
     data-accent_color="00c060"
     /* Blue to Green Gradient */
     data-badge_grad1="0768b3" 
@@ -63,8 +64,8 @@
 ></iframe>
 
         <div class="finance">
-            <iframe id="cta-1" scrolling="no" data-base-url="https://komutheme2.vercel.app/project/public/snippets/lime/cta-card.html" data-heading="BECOME A MEMBER" data-icon="handshake" data-bg_color="064e3b" data-btn_bg="ffc0cb"></iframe>
-            <iframe id="cta-2"  data-base-url="https://komutheme2.vercel.app/project/public/snippets/lime/cta-card.html" data-heading="ACCESS LOANS" data-icon="coins" data-bg_color="064e3b" data-btn_bg="ffc0cb"></iframe>
+            <iframe id="cta-1" scrolling="no" data-base-url="https://komutheme2.vercel.app/project/public/snippets/lime/cta-card.html" data-heading="BECOME A MEMBER" data-icon="handshake" data-bg_color="0055af" data-btn_bg="ffffff" data-btn_text_color="1a1a1a"></iframe>
+            <iframe id="cta-2"  data-base-url="https://komutheme2.vercel.app/project/public/snippets/lime/cta-card.html" data-heading="ACCESS LOANS" data-icon="coins" data-bg_color="000000" data-btn_bg="ffffff" data-btn_text_color="1a1a1a"></iframe>
         </div>
 
         <div class="bubble-scroll-container">
@@ -125,6 +126,27 @@
         data-text_color="1a1a1a"
     ></iframe>
 </div>
+<div class="intro">
+        <iframe 
+            id="blond-intro"
+            src=""
+            data-base-url="https://komutheme2.vercel.app/project/public/snippets/blonde/intro-card.html"
+            data-frame-id="blond-intro"
+            data-eyebrow="Hi there!"
+            data-heading="Allow me to introduce myself."
+            data-description="Transferring words from your brain, to a page, and making your target audience relate is what I do."
+            data-btn_text="Read More"
+            data-btn_href="#"
+            data-bg_image="https://integraco-op.vercel.app/img2.png"
+            data-bg_color="ffffff"
+            data-card_bg="ffffff"
+            data-text_color="1a1a1a"
+            data-heading_color="1a1a1a"
+            data-btn_bg="1a1a1a"
+            data-btn_text="ffffff"
+        ></iframe>
+</div>
+
         <div class="bg-elements">
             <div class="shape circle"></div>
             <div class="shape square"></div>
@@ -287,6 +309,7 @@ function updateBubble() {
 
         const rect = stack.getBoundingClientRect();
         const windowHeight = window.innerHeight;
+        const isMobile = window.innerWidth < 768;
 
         // This calculation checks where the stack is relative to the viewport center
         // It returns 0 when below screen, 1 when in center, and >1 when leaving top
@@ -299,15 +322,19 @@ function updateBubble() {
         // When p=0, opacity is 0 and translate is 200px. When p=1, opacity is 1 and translate is 0.
         const c1Opacity = p * 1.5; 
         const c1Move = (1 - p) * 200; 
+        const r1 = isMobile ? -2 : -4; // Less rotation on mobile
+
         card1.style.opacity = Math.min(1, c1Opacity);
-        card1.style.transform = `rotate(-4deg) translateY(${c1Move}px) scale(${0.9 + (p * 0.1)})`;
+        card1.style.transform = `rotate(${r1}deg) translateY(${c1Move}px) scale(${0.9 + (p * 0.1)})`;
 
         // CARD 2: Fly in later and faster
         const p2 = Math.max(0, p - 0.2); // 0.2 stagger delay
         const c2Opacity = p2 * 1.5;
         const c2Move = (1 - p2) * 300;
+        const r2 = isMobile ? 1 : 2; // Less rotation on mobile
+
         card2.style.opacity = Math.min(1, c2Opacity);
-        card2.style.transform = `rotate(2deg) translateY(${c2Move}px) scale(${0.8 + (p2 * 0.2)})`;
+        card2.style.transform = `rotate(${r2}deg) translateY(${c2Move}px) scale(${0.8 + (p2 * 0.2)})`;
         
         // RESET: If you scroll way past, fade them out so they can 're-reveal' later
         if (rect.bottom < 0 || rect.top > windowHeight) {
