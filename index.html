@@ -1,155 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Integra Co‑Op — Cinematic Hero</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.6/lottie.min.js"></script>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
-<style>
-:root{
-  --bg: #0a0d12;
-  --gold: #c9a86a;
-  --ivory: #f3f1ec;
-  --glass: rgba(255,255,255,0.08);
-}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:#e7e6e3;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial}
-.hero{
-  position:relative;min-height:100vh;overflow:hidden;
-}
-.hero video{
-  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:contrast(1.05) saturate(0.9) brightness(0.7);
-}
-.layer-gradient{
-  position:absolute;inset:-10% -10%;
-  background:radial-gradient(1200px 600px at 70% 30%, rgba(201,168,106,0.25), transparent 60%),
-             linear-gradient(180deg, rgba(10,13,18,0.2), rgba(10,13,18,0.6));
-  mix-blend-mode:soft-light;
-}
-.glass-panel{
-  position:absolute;top:12%;left:8%;
-  width:min(720px, 86vw);padding:48px;border-radius:24px;
-  background:var(--glass);backdrop-filter: blur(16px);
-  border:1px solid rgba(255,255,255,0.15);
-  box-shadow:0 30px 80px rgba(0,0,0,0.5);
-  transform:translateZ(0); /* ensures compositing */
-}
-h1{
-  font-family:"Cormorant Garamond", serif;
-  font-weight:600;font-size:clamp(36px,6vw,68px);line-height:1.02;margin:0 0 12px;
-  letter-spacing:0.01em;color:var(--ivory);
-}
-.tagline{font-size:clamp(16px,2.4vw,20px);opacity:0.85;margin-bottom:28px}
-.cta{
-  display:inline-block;padding:14px 22px;border:1px solid rgba(201,168,106,0.5);
-  color:var(--ivory);text-decoration:none;border-radius:999px;
-  transition:transform 260ms ease, box-shadow 260ms ease, background 260ms ease;
-  background:linear-gradient(180deg, rgba(201,168,106,0.22), rgba(201,168,106,0.06));
-}
-.cta:hover{transform:translateY(-2px);box-shadow:0 14px 32px rgba(201,168,106,0.25)}
-.secondary{margin-left:14px;border-color:rgba(255,255,255,0.35);background:transparent;opacity:0.9}
-.parallax{
-  position:absolute;inset:0;pointer-events:none;
-}
-.shape{
-  position:absolute;border-radius:40px;filter:blur(30px);opacity:0.35;
-}
-.shape.one{width:420px;height:260px;background:#20304a;top:10%;left:55%}
-.shape.two{width:360px;height:220px;background:#1e2230;top:62%;left:70%}
-.shape.three{width:300px;height:180px;background:#2b1f17;top:72%;left:18%}
-.brand{
-  position:absolute;bottom:6%;left:8%;color:#bfb9ac;letter-spacing:0.2em;font-size:12px;text-transform:uppercase;opacity:0.7
-}
-.cursor-spotlight{
-  position:absolute;inset:0;background:radial-gradient(300px 300px at var(--mx,50%) var(--my,50%), rgba(255,255,255,0.06), transparent 65%);
-}
-@keyframes floaty{from{transform:translateY(0)}to{transform:translateY(-8px)}}
-.floating{animation:floaty 6s ease-in-out infinite alternate}
-
-.corner-orb {
-  position: absolute;
-  bottom: 6%;
-  right: 6%;
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 30% 30%, var(--gold), transparent 70%);
-  opacity: 0.45;
-  filter: blur(20px);
-  animation: pulse 6s ease-in-out infinite, drift 12s ease-in-out infinite alternate;
-}
-
-@keyframes pulse {
-  0%   { transform: scale(0.9); opacity: 0.35; }
-  50%  { transform: scale(1.1); opacity: 0.55; }
-  100% { transform: scale(0.9); opacity: 0.35; }
-}
-
-@keyframes drift {
-  from { transform: translate(0,0); }
-  to   { transform: translate(-20px, -10px); }
-}
-
-.corner-lottie {
-  position: absolute;
-  bottom: 5%;
-  right: 5%;
-  width: 200px;
-  height: 200px;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style/index.css">
+    <title>Integra Co-Op</title>
 </head>
 <body>
-<section class="hero" id="hero">
-  <!-- Replace src with a premium abstract video -->
-  <video src="hero-loop.mp4" autoplay muted loop playsinline></video>
-  <div class="layer-gradient"></div>
-  <div class="cursor-spotlight"></div>
-  <div class="parallax">
-    <div class="shape one floating"></div>
-    <div class="shape two floating" style="animation-duration:8s"></div>
-    <div class="shape three floating" style="animation-duration:7s"></div>
-  </div>
-  <div class="glass-panel">
-    <h1>Where collaboration meets excellence</h1>
-    <p class="tagline">A co‑operative built on elegance, trust, and innovation.</p>
-    <a class="cta" href="#vision">Step inside</a>
-    <a class="cta secondary" href="#mission">Discover our mission</a>
-  </div>
-  <div class="corner-orb"></div>
-  <div class="brand">Integra Co‑Op</div>
-  <div id="lottie-corner" class="corner-lottie"></div>
-
-
-</section>
-<script>
-const hero = document.getElementById('hero');
-const spotlight = document.querySelector('.cursor-spotlight');
-const shapes = document.querySelectorAll('.shape');
-hero.addEventListener('mousemove', (e)=>{
-  const rect = hero.getBoundingClientRect();
-  const mx = e.clientX - rect.left;
-  const my = e.clientY - rect.top;
-  spotlight.style.setProperty('--mx', `${mx}px`);
-  spotlight.style.setProperty('--my', `${my}px`);
-  // gentle parallax
-  shapes.forEach((el, i)=>{
-    const depth = (i+1)*0.03;
-    el.style.transform = `translate(${(mx-rect.width/2)*depth}px, ${(my-rect.height/2)*depth}px)`;
-  });
-});
-</script>
-
-<script>
-  lottie.loadAnimation({
-    container: document.getElementById('lottie-corner'),
-    renderer: 'svg',
-    loop: true,
-    autoplay: true,
-    path: 'Untitled file.json' // your Lottie JSON file
-  });
-</script>
+    <div class="container">
+        <div class="navbar">
+                    <iframe 
+            id="blond-nav"
+            src=""
+            height=""
+            data-base-url="https://komutheme2.vercel.app/project/public/snippets/blonde/navbar.html"
+            data-frame-id="blond-nav"
+            data-brand="INTEGRA CO-OP"
+            data-logo_url="https://integra-co-op/logo.png"
+            data-link1_text="About"
+            data-link2_text="Services"
+            data-link3_text="Products"
+            data-link4_text="Contacts"
+            data-link1_href="#" 
+            data-link2_href="#" 
+            data-link3_href="#" 
+            data-link4_href="#" 
+            data-cta_text="Learn More"
+            data-cta_href="#"
+            data-bg_color="ffffff"
+            data-text_color="1a1a1a"
+            data-btn_bg="1a1a1a"
+            data-btn_text="ffffff"
+            data-link_hover="00c060"
+            data-border_color="eeeeee"
+        ></iframe>
+        </div>
+    </div>
 </body>
+
+    <script>
+        window.addEventListener("message", function(event) {
+            if (event.data.frameHeight && event.data.frameId) {
+                const iframe = document.getElementById(event.data.frameId);
+                if (iframe) iframe.style.height = event.data.frameHeight + "px";
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('iframe[data-base-url]').forEach(iframe => {
+                const baseUrl = iframe.getAttribute('data-base-url');
+                let params = [];
+                for (const attr of iframe.attributes) {
+                    if (attr.name.startsWith('data-') && attr.name !== 'data-base-url' && attr.name !== 'data-frame-id') {
+                        params.push(`${attr.name.substring(5)}=${encodeURIComponent(attr.value)}`);
+                    }
+                }
+                iframe.src = baseUrl + '?' + params.join('&') + '&frame_id=' + iframe.id;
+            });
+        });
+    </script>
 </html>
