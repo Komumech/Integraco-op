@@ -1,0 +1,261 @@
+:root{
+    --accent-color: #1a1a1a;
+    --button-font-size: 1rem;
+    --text-color: #40434d;
+    --hover-color: #847f7f;
+    --button-hover-color: #ffffff;
+    --button-color: #1a1a1a;
+}
+body{
+    font-family: "Plus Jakarta Sans", sans-serif;
+    color: var(--text-color);
+}
+.top-nav{
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    width: 90vw;
+    padding: 0px 5px;
+    margin: 0 auto;
+    height: 60px;
+    align-items: center;
+}
+.logo{
+    justify-self: flex-start;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    grid-template-rows: 100%;
+    gap: 20px;
+}
+.logo img{
+    height: 50px;
+    width: auto;
+}
+.brand{
+    font-weight: 700;
+    font-size: 1.3rem;
+}
+.navlinks ul{
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    gap: 20px;
+}
+
+.navlinks ul li{
+    padding-left: 30px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    
+}
+.navlinks ul li a:hover{
+    color: var(--hover-color);
+}
+.navlinks ul li a{
+    text-decoration: none;
+    transition: all 0.4s ease-in-out;
+    color: rgb(62, 59, 59);
+}
+button{
+    font-weight: 600;
+    font-size: var(--button-font-size);
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
+}
+.cta1{
+    background-color: var(--accent-color);
+    color: white;
+}
+.cta1:hover{
+    background-color: var(--button-hover-color);
+    color: var(--button-color);
+}
+.sk{
+    background-color: transparent;
+    color: var(--accent-color);
+    border: 1.2px solid var(--button-color);
+}
+.sk:hover{
+    background-color: var(--button-color);
+    color: var(--button-hover-color)
+}
+.btn-group{
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    margin-left: auto;
+    justify-self: right;
+    position: relative;
+}
+.second{
+    margin-top: -2rem;
+    margin-left: 0px;
+    gap: 10px;
+    justify-self: left;
+}
+.report-banner {
+    /* Layout & Sizing */
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 24px 8px 10px;
+    border-radius: 50px; /* Makes it pill-shaped */
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    
+    /* Initial State (Dark Version) */
+    background-color: #0d1821; 
+    color: white;
+    font-family: 'Inter', sans-serif; /* Matching the font we identified */
+}
+
+.report-banner .icon-badge {
+    background-color: #0087ff; /* Blue flower shape background */
+    padding: 8px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+.report-banner .text {
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.report-banner .arrow {
+    color: #00d1ff; /* Cyan arrow */
+    margin-left: 5px;
+    font-size: 1.2rem;
+}
+
+/* --- HOVER STATE --- */
+.report-banner:hover {
+    background-color: #0087ff; /* Bright Blue background on hover */
+}
+
+.report-banner:hover .icon-badge {
+    background-color: #ffde00; /* Yellow flower shape on hover */
+}
+
+.report-banner:hover .icon-badge img, 
+.report-banner:hover .icon-badge i {
+    filter: invert(1); /* Turns the icon black if it was white */
+}
+
+.hero{
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    
+}
+.right{
+    width: 90%;
+    margin-right: 10px;
+}
+.left{
+    margin-left: 10px;
+    width: 90%;
+}
+.headline{
+    width: 70%;
+    font-size: 3.1rem;
+    color: var(--text-color);
+    font-weight: 600;
+}
+.subline{
+    display: block;
+    font-size: 1.1rem;
+    padding-top: 1.1rem;
+    line-height: 1.7rem;
+    font-weight: 400;
+}
+
+.hero-container {
+    position: relative;
+    width: 100%;
+    height: 80vh; /* Adjust based on 3/4 format preference */
+    overflow: hidden;
+    background: #f4f7f6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Base style for all floating boxes */
+.floating-box {
+    position: absolute;
+    background: white;
+    padding: 15px 20px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    z-index: 10;
+}
+
+/* Hover effect: Pop out and stop animation feel */
+.floating-box:hover {
+    transform: scale(1.1) translateY(-10px) !important;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    z-index: 20;
+}
+
+/* Floating Animation */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+}
+
+/* Individual Box Positions and different animation speeds for organic feel */
+.box-1 { 
+    top: 15%; left: 10%; 
+    animation: float 4s ease-in-out infinite; 
+}
+.box-2 { 
+    top: 10%; right: 10%; 
+    animation: float 5s ease-in-out infinite; 
+    animation-delay: 1s;
+}
+.box-3 { 
+    bottom: 25%; left: 5%; 
+    animation: float 6s ease-in-out infinite; 
+    animation-delay: 0.5s;
+}
+
+/* Simple styling for contents */
+.label { font-size: 0.8rem; font-weight: 700; color: #666; margin: 0; }
+.label.green { color: #27ae60; }
+.label.pink { color: #e91e63; }
+h3 { margin: 5px 0; font-family: 'Inter', sans-serif; }
+
+.progress-bar {
+    width: 150px;
+    height: 6px;
+    background: #eee;
+    border-radius: 10px;
+    margin-top: 8px;
+}
+.fill {
+    width: 40%;
+    height: 100%;
+    background: #27ae60;
+    border-radius: 10px;
+}
