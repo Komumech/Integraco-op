@@ -14,6 +14,28 @@
             <iframe id="blond-nav" data-base-url="https://komutheme2.vercel.app/project/public/snippets/blonde/navbar.html" data-brand="INTEGRA CO-OP" data-logo_url="https://integraco-op.vercel.app/logo.png" data-link1_text="About" data-link2_text="Services" data-link3_text="Products" data-link4_text="Contacts" data-cta_text="Join" data-bg_color="transparent" data-text_color="1a1a1a" data-btn_bg="1a1a1a" data-btn_text="ffffff"></iframe>
         </div>
 
+<div class="intro2">
+        <iframe 
+            id="blond-intro"
+            src=""
+            data-base-url="https://komutheme2.vercel.app/project/public/snippets/blonde/intro-card.html"
+            data-frame-id="blond-intro"
+            data-eyebrow="Hi there!"
+            data-heading="Uplifting lives through financial tools"
+            data-description="We provide members with sustainable practices, consistent savings options and knowledge sharing webinars for personal growth."
+            data-btn_text="Join Now"
+            data-btn_href="#"
+            data-bg_image="https://integraco-op.vercel.app/img2.png"
+            data-bg_color="ffffff"
+            data-card_bg="0055af"
+            data-text_color="ffffff"
+            data-heading_color="ffffff"
+            data-btn_bg="ffffff"
+            data-btn_text="ffffff"
+        ></iframe>
+</div>
+
+
         <iframe 
         scrolling="no"
             id="blond-hero"
@@ -128,23 +150,40 @@
 </div>
 <div class="intro">
         <iframe 
-            id="blond-intro"
+            id="blond-intro2"
             src=""
             data-base-url="https://komutheme2.vercel.app/project/public/snippets/blonde/intro-card.html"
             data-frame-id="blond-intro"
             data-eyebrow="Hi there!"
-            data-heading="Allow me to introduce myself."
-            data-description="Transferring words from your brain, to a page, and making your target audience relate is what I do."
-            data-btn_text="Read More"
+            data-heading="Become A Member."
+            data-description="Become a member today to access cutting edge financial tools to boost savings, affordable credit options, and educational webinars shaping community empowerment."
+            data-btn_text="Join"
             data-btn_href="#"
             data-bg_image="https://integraco-op.vercel.app/img2.png"
             data-bg_color="ffffff"
-            data-card_bg="ffffff"
-            data-text_color="1a1a1a"
-            data-heading_color="1a1a1a"
-            data-btn_bg="1a1a1a"
+            data-card_bg="1a1a1a"
+            data-text_color="ffffff"
+            data-heading_color="ffffff"
+            data-btn_bg="ffffff"
             data-btn_text="ffffff"
         ></iframe>
+</div>
+
+
+
+        <div class="footer">
+        <iframe 
+            id="custom-footer"
+            scrolling="no"
+            src=""
+            data-base-url="https://komutheme2.vercel.app/project/public/snippets/lime/footer.html"
+            data-frame-id="custom-footer"
+            data-brand="INTEGRA"
+            data-nav_links="About|#,Concept|#,Buy|#,Sell|#,Resources|#,Contact|#"
+            data-bg_color="4fcf0a27"
+            data-text_color="0055af"
+        ></iframe>
+
 </div>
 
         <div class="bg-elements">
@@ -169,10 +208,20 @@
 
     <script>
         // Iframe Resizer & Parameter Handler
+        const iframeState = {};
+
         window.addEventListener("message", e => {
             if (e.data.frameHeight && e.data.frameId) {
                 const f = document.getElementById(e.data.frameId);
-                if (f) f.style.height = e.data.frameHeight + "px";
+                if (f) {
+                    const prev = iframeState[e.data.frameId] || 0;
+                    const curr = e.data.frameHeight;
+                    // Prevent infinite loops: only update if change is significant (>5px) or it's first load
+                    if (prev === 0 || Math.abs(curr - prev) > 5) {
+                        f.style.height = curr + "px";
+                        iframeState[e.data.frameId] = curr;
+                    }
+                }
             }
         });
 

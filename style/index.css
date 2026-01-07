@@ -76,7 +76,7 @@ iframe {
     transition: transform 0.3s ease-out;
 }
 
-.circle { width: 400px; height: 400px; top: 15%; right: -100px; }
+.circle { width: 400px; height: 400px; top: 34%; right: -100px; }
 
 .square {
     width: 300px;
@@ -140,7 +140,7 @@ iframe {
 }
 
 .top-layer {
-    background-color: #ffffff;
+    background-color: #efeeee;
     color: #00c060;
     z-index: 2;
     /* Ensure the filter is applied */
@@ -249,6 +249,20 @@ iframe {
     position: relative;
     margin-top: 13rem;
 }
+
+.intro2{
+    position: relative;
+    margin-top: 0rem;
+}
+#blond-hero{
+    margin-top: 0rem;
+}
+.footer {
+    position: relative;
+    bottom: 0rem;
+    overflow: hidden;
+
+}
 /* 7. RESPONSIVE ADJUSTMENTS */
 @media (max-width: 768px) {
     .intro{
@@ -275,5 +289,11 @@ iframe {
     }
     .reveal-title {
         font-size: 12vw;
+    }
+}
+
+@media (max-width: 300px) {
+    #custom-footer{
+        height: 90vh  !important;
     }
 }
