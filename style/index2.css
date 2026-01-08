@@ -1,12 +1,6 @@
-:root{
-    --accent-color: #1a1a1a;
-    --button-font-size: 1rem;
-    --text-color: #40434d;
-    --hover-color: #847f7f;
-    --button-hover-color: #ffffff;
-    --button-color: #1a1a1a;
-}
+
 body{
+    background-color: #e5edf0;
     font-family: "Plus Jakarta Sans", sans-serif;
     color: var(--text-color);
 }
@@ -59,38 +53,109 @@ body{
     transition: all 0.4s ease-in-out;
     color: rgb(62, 59, 59);
 }
-button{
-    font-weight: 600;
-    font-size: var(--button-font-size);
-    padding: 10px 20px;
+.wave-btn {
+    --btn-height: 45px; /* Slightly taller for a more modern look */
+    height: var(--btn-height);
+    padding: 0 15px;
     border-radius: 10px;
-    cursor: pointer;
-    transition: all 0.4s ease-in-out;
+    background-color: #1a1a1a;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    border: none;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
-.cta1{
-    background-color: var(--accent-color);
-    color: white;
+
+/* THE LIQUID CONTAINER */
+.wave-btn::before {
+    content: "";
+    position: absolute;
+    left: -50%;
+    top: 100%; /* Fully hidden below */
+    width: 200%;
+    height: 200%;
+    background-color: var(--primary-blue);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 200'%3E%3Cpath fill='%230087ff' d='M0,100 C200,150 400,50 600,100 C800,150 1000,50 1200,100 C1400,150 1600,50 1600,100 L1600,200 L0,200 Z'%3E%3C/path%3E%3C/svg%3E");
+    background-size: 50% 80px;
+    background-repeat: repeat-x;
+    background-position: top center;
+    transition: top 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+    z-index: 2;
 }
-.cta1:hover{
-    background-color: var(--button-hover-color);
-    color: var(--button-color);
+
+/* THE TEXT WRAPPER */
+.btn-text {
+    position: relative;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #ffffff;
+    z-index: 3;
+    pointer-events: none;
 }
-.sk{
-    background-color: transparent;
-    color: var(--accent-color);
-    border: 1.2px solid var(--button-color);
+
+/* THE COLOR-SHIFTING LAYER */
+.btn-text::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    color: var(--liquid-yellow);
+    /* Initially hide the yellow text */
+    clip-path: inset(100% 0 0 0);
+    transition: clip-path 0.6s cubic-bezier(0.77, 0, 0.175, 1);
 }
-.sk:hover{
-    background-color: var(--button-color);
-    color: var(--button-hover-color)
+
+/* ANIMATIONS & HOVER */
+@keyframes wave-move {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(50%); }
+}
+
+.wave-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,135,255,0.3);
+}
+
+.wave-btn:hover::before {
+    top: 30%; /* Rises to cover about 70% of the button */
+    animation: wave-move 3s linear infinite;
+}
+
+.wave-btn:hover .btn-text::after {
+    /* Reveals the yellow text exactly as the water rises */
+    clip-path: inset(0 0 0 0);
+}
+
+.wave-btn:active {
+    transform: scale(0.95);
 }
 .btn-group{
     display: flex;
     flex-direction: row;
     gap: 30px;
     margin-left: auto;
+    margin-top: -4rem;
+    align-items: center;
     justify-self: right;
     position: relative;
+}
+.first{
+    margin-top: 0.5rem;
+    padding-right: 2rem;
+   
+}
+.cta1{
+    height: 35px;
+}
+.cta2{
+    height: 35px;
+    background-color: white;
+    color: black;
 }
 .second{
     margin-top: -2rem;
@@ -98,58 +163,94 @@ button{
     gap: 10px;
     justify-self: left;
 }
+/* Container styling */
 .report-banner {
-    /* Layout & Sizing */
+    margin-bottom: 1rem;
     display: inline-flex;
     align-items: center;
     gap: 12px;
-    padding: 8px 24px 8px 10px;
-    border-radius: 50px; /* Makes it pill-shaped */
-    cursor: pointer;
+    padding: 6px 20px 6px 8px;
+    border-radius: 50px;
     text-decoration: none;
-    transition: all 0.3s ease;
-    
-    /* Initial State (Dark Version) */
-    background-color: #0d1821; 
+    transition: background-color 0.3s ease;
+    background-color: #003c9c; /* Dark blue/black */
     color: white;
-    font-family: 'Inter', sans-serif; /* Matching the font we identified */
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
 }
 
-.report-banner .icon-badge {
-    background-color: #0087ff; /* Blue flower shape background */
-    padding: 8px;
-    border-radius: 12px;
+/* Scalloped Flower Badge */
+.icon-badge {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background-color 0.3s ease;
 }
 
+.flower-bg { 
+    fill: #19be00; /* Blue state */
+    transition: fill 0.3s ease;
+}
+
+.doc-stroke { 
+    stroke: white; 
+    transition: stroke 0.3s ease;
+}
+
+.doc-fill { 
+    fill: white; 
+    transition: fill 0.3s ease;
+}
+
+/* Text Styling */
 .report-banner .text {
     font-weight: 600;
     font-size: 0.95rem;
+    white-space: nowrap;
 }
 
-.report-banner .arrow {
-    color: #00d1ff; /* Cyan arrow */
-    margin-left: 5px;
-    font-size: 1.2rem;
+/* Morphing Arrow Styling */
+.interactive-arrow {
+    margin-left: 4px;
+    transition: transform 0.3s ease;
 }
 
-/* --- HOVER STATE --- */
+.arrow-path {
+    /* Idle State: Straight vertical line */
+    d: path("M10 4 L10 10 L10 16"); 
+    stroke: #00d1ff; /* Cyan color */
+    transition: d 0.3s ease, stroke 0.3s ease;
+}
+
+/* --- HOVER EFFECTS --- */
+
+/* Main Background */
 .report-banner:hover {
-    background-color: #0087ff; /* Bright Blue background on hover */
+    background-color: #0087ff; /* Bright blue on hover */
 }
 
-.report-banner:hover .icon-badge {
-    background-color: #ffde00; /* Yellow flower shape on hover */
+/* Flower Badge Colors */
+.report-banner:hover .flower-bg { 
+    fill: #ffde00; /* Turns yellow on hover */
 }
 
-.report-banner:hover .icon-badge img, 
-.report-banner:hover .icon-badge i {
-    filter: invert(1); /* Turns the icon black if it was white */
+.report-banner:hover .doc-stroke { 
+    stroke: #0d1821; /* Icon turns dark on hover */
 }
 
+.report-banner:hover .doc-fill { 
+    fill: #0d1821; 
+}
+
+/* Arrow Animation */
+.report-banner:hover .arrow-path {
+    /* Hover State: Bends into a '>' shape */
+    d: path("M7 4 L13 10 L7 16"); 
+    stroke: white; /* Arrow turns white to match hover text */
+}
+
+.report-banner:hover .interactive-arrow {
+    transform: translateX(4px); /* Slight movement to the right */
+}
 .hero{
     display: flex;
     flex-direction: row;
@@ -169,13 +270,14 @@ button{
 }
 .headline{
     width: 70%;
-    font-size: 3.1rem;
+    font-size: 2.9rem;
     color: var(--text-color);
     font-weight: 600;
+    margin: 0px;
 }
 .subline{
     display: block;
-    font-size: 1.1rem;
+    font-size: 1rem;
     padding-top: 1.1rem;
     line-height: 1.7rem;
     font-weight: 400;
@@ -185,7 +287,6 @@ button{
     position: relative;
     width: 100%;
     overflow: hidden;
-    background: #f4f7f6;
     display: flex;
     height: 80vh;
     justify-content: center;
@@ -194,12 +295,13 @@ button{
 .hero-bg {
     position: absolute;
     height: 100%;
+    width: 70%;
 }
 .hero-bg img {
     object-position: top center;
     width: 100%;
+    height: 100%;
     position: relative;
-    height: 80vh;
     border-radius: 24px;
     object-fit: cover;
 }
@@ -267,4 +369,245 @@ h3 { margin: 5px 0; font-family: 'Inter', sans-serif; }
     height: 100%;
     background: #27ae60;
     border-radius: 10px;
+}
+
+/* --- MOBILE NAVIGATION & RESPONSIVE --- */
+
+/* Hamburger Menu Trigger */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+    z-index: 100;
+    padding: 10px;
+}
+
+.hamburger span {
+    width: 28px;
+    height: 3px;
+    background-color: var(--text-color);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* Mobile Menu Overlay (Matches imk.png) */
+.mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #f0f4f8; /* Light grayish-blue background */
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+    box-sizing: border-box;
+    transform: translateX(100%);
+    transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.mobile-menu-overlay.active {
+    transform: translateX(0);
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* Mobile Header (Logo + Close) */
+.mobile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.close-menu {
+    font-size: 2.5rem;
+    cursor: pointer;
+    color: #0d1821;
+    line-height: 1;
+}
+
+/* Mobile Links List */
+.mobile-links {
+    list-style: none;
+    padding: 0;
+    margin: auto 0; /* Centers vertically */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
+}
+
+.mobile-links li {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #0d1821;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Mobile Bottom Buttons */
+.mobile-auth {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    padding-bottom: 20px;
+}
+
+.m-btn {
+    width: 100%;
+    padding: 16px;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid #0d1821;
+    transition: transform 0.2s;
+}
+
+.m-btn-outline {
+    background: transparent;
+    color: #0d1821;
+}
+
+.m-btn-fill {
+    background: #0d1821;
+    color: white;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 768px) {
+    .logo{
+        padding-left: 20px;
+    }
+    .navlinks, .btn-group {
+        display: none; /* Hide desktop nav */
+    }
+    
+    .hamburger {
+        display: flex; /* Show hamburger */
+        margin-left: auto;
+    }
+
+    .top-nav {
+        width: 90%;
+        padding: 10px 0;
+    }
+
+    /* Hero Adjustments for Mobile */
+    .hero {
+        flex-direction: column;
+        margin-top: 7rem;
+        text-align: center;
+    }
+
+    .headline {
+        width: 100%;
+        font-size: 2.2rem;
+    }
+
+    .right, .left {
+        width: 100%;
+        margin: 0;
+    }
+    .box-1, .box-2{
+        display: none;
+    }
+    .build-img img{
+        width: 10rem;
+    }
+    .hero-container {
+        height: 50vh;
+        margin-top: 20px;
+    }
+}
+@media(max-width: 768px){
+    .build-cont{
+        grid-template-columns: 100%;
+    }
+    .build-card{
+        width: 60vw;
+    }
+
+
+}
+
+/* --- HELP / CARDS SECTION --- */
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+    padding-bottom: 50px;
+}
+
+.card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 30px;
+    width: 260px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    opacity: 0; /* Hidden initially */
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Icon Styling */
+.card .catd-txt span:first-child {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background-color: #0087ff; /* Bright Blue Background */
+    color: white;
+    border-radius: 15px;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    transition: all 0.3s ease-in-out;
+}
+
+.card-head {
+    font-size: 1.2rem;
+    font-weight: 900;
+    color: #0d1821;
+    display: inline-block;
+    margin-bottom: 8px;
+}
+
+.catd-txt {
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Animation Logic: Slide out from each other */
+/* Odd cards (1, 3) start shifted Right (towards their neighbor) */
+.card:nth-child(odd) { transform: translateX(50px); }
+
+/* Even cards (2, 4) start shifted Left (towards their neighbor) */
+.card:nth-child(even) { transform: translateX(-50px); }
+
+/* Triggered State */
+.card-container.show .card {
+    opacity: 1;
+    transform: translateX(0);
+}
+.card:hover .card-head{
+    color: #0087ff;
+}
+.card:hover .catd-txt span:first-child{
+    transform: rotate(12deg);
 }

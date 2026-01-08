@@ -1,0 +1,141 @@
+.build-card{
+    height: 20rem;
+    width: 22rem;
+    border-radius: 30px;
+    background-color: var(--card-bg-color);
+}
+.build-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    overflow: hidden;
+}
+
+.build-txt{
+    text-align: left;
+    
+}
+.blue{
+    color: rgb(25, 25, 150);
+    transition: all 0.3s ease-in-out;
+}
+.teal{
+    color: var(--teal);
+    transition: all 0.3s ease-in-out;
+}
+.blue:hover{
+    background-color: blue;
+}
+.teal:hover{
+    background-color: var(--teal);
+}
+.build-head{
+    font-size: 2.1rem;
+    font-weight: 700;
+    transition: all 0.3s ease-in-out;
+}
+.teal .build-head{
+    color: var(--teal);
+}
+.build-body{
+    max-width: 70%;
+    display: block;
+    line-height: 1.5rem;
+    padding-top: 0.9rem;
+    transition: all 0.3s ease-in-out;
+}
+.build-card:hover .build-img{
+    transform: scale(1) translateX(0px) translateY(0px);
+}
+.build-img img{
+    width: 14rem;
+    height: auto;
+    justify-self: right;
+    transform-origin: right;
+    padding-right: 20px;
+}
+.build-img{
+    justify-content: right;
+    width: 100%;
+    height: 100%;
+    margin-left: 3rem;
+    transform: scale(0) translateX(350px) translateY(350px);
+    transform-origin: right;
+    transition: transform 0.3s ease-in-out;
+    display: flex;
+}
+.build-card:hover .build-head{
+    color: white;
+}
+.build-card:hover .build-body{
+    color: white;
+}
+.img-cont{
+    width: 100%;
+    height: 100%;
+}
+.build-link{
+}
+.blue .build-link{
+    color: blue;
+    transition: all 0.3s ease-in-out;
+    position: absolute;
+}
+.teal .build-link{
+    color: var(--teal);
+    transition: all 0.3s ease-in-out;
+    position: absolute;
+}
+.build-card:hover .build-link{
+    color: white;
+
+}
+.build-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 350px;
+    padding: 40px;
+    position: relative;
+    background-color: var(--card-bg-color);
+    border-radius: 20px;
+}
+.build-link-wrapper {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    bottom: 20px;
+    gap: 12px;
+    text-decoration: none;
+    color: #003399;
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-top: auto;
+}
+.build-card:hover .build-link-wrapper span{
+    color: white;
+}
+.build-card:hover .build-link-wrapper svg{
+    color: white;
+}
+.teal .build-link-wrapper {
+    color: var(--teal);
+}
+
+.build-cont{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap: 2rem;
+    margin: 0 auto;
+    width: 80vw;
+}
+@media(max-width: 768px){
+    .build-cont{
+        grid-template-columns: 100%;
+    }
+    .build-card{
+        width: 60vw;
+    }
+
+
+}
