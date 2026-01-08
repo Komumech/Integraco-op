@@ -23,11 +23,26 @@
     color: var(--teal);
     transition: all 0.3s ease-in-out;
 }
+.red{
+    color: var(--red);
+    transition: all 0.3s ease-in-out;
+}
+.yellow{
+    color: var(--yellow);
+    transition: all 0.3s ease-in-out;
+}
 .blue:hover{
     background-color: blue;
 }
 .teal:hover{
     background-color: var(--teal);
+}
+
+.red:hover{
+    background-color: var(--red);
+}
+.yellow:hover{
+    background-color: var(--yellow);
 }
 .build-head{
     font-size: 2.1rem;
@@ -86,6 +101,16 @@
     transition: all 0.3s ease-in-out;
     position: absolute;
 }
+.red .build-link{
+    color: var(--red);
+    transition: all 0.3s ease-in-out;
+    position: absolute;
+}
+.yellow .build-link{
+    color: var(--yellow);
+    transition: all 0.3s ease-in-out;
+    position: absolute;
+}
 .build-card:hover .build-link{
     color: white;
 
@@ -121,7 +146,12 @@
 .teal .build-link-wrapper {
     color: var(--teal);
 }
-
+.red .build-link-wrapper {
+    color: var(--red);
+}
+.yellow .build-link-wrapper {
+    color: var(--yellow);
+}
 .build-cont{
     display: grid;
     grid-template-columns: 50% 50%;
