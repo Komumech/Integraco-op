@@ -1,0 +1,42 @@
+.earn-cont{
+    background-color: var(--accent3-color);
+    width: 85vw;
+    margin: 0 auto;
+    height: 80vh;
+    border-radius: 30px;
+    padding: 25px 4rem;
+    display: flex;
+    flex-direction: row;
+}
+.earn-txt .head{
+    text-align: left;
+    color: white;
+    margin-bottom: 25px;
+}
+.earn-txt .head .subline{
+    color: white;
+    font-size: 1.2rem;
+    margin-top: 25px;
+    max-width: 50%;
+}
+.earn-txt{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+}
+.earn-txt .build-link-wrapper{
+    position: relative;
+    color: white;
+    padding-bottom: 40px;
+}
+
+.earn-img{
+    height: 95%;
+    display: flex;
+    margin-right: -4rem;
+}
+
+.earn-img img{
+    height: auto;
+    border-radius: 20px;
+}

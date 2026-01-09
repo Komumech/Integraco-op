@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Crumb - Freshly Baked Delights</title>
+    <!-- Optional: Add any global styles here if needed, otherwise snippets are self-contained -->
+    <style>
+        body {
+            font-family: sans-serif; /* A fallback font */
+            margin: 0;
+            background-color: #f8f8f8; /* A light background for the whole page */
+        }
+        iframe {
+            display: block; /* Ensure iframes behave as block elements for layout */
+            margin: 0 auto; /* Center iframes if they have a set width or are within a wider container */
+            border: none;
+            width: 100%;
+            overflow: hidden;
+            background: transparent !important; /* Ensure transparent background */
+        }
+        /* You can add custom container classes here if you want to control max-width for certain sections */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px; /* Add some padding around the content */
+        }
+        .two-column-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        @media (max-width: 768px) {
+            .two-column-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+
+    <!-- REQUIRED KOMUTHEME SIZING SCRIPT -->
+    <!-- This script handles the dynamic resizing and loading of the iframe snippets. -->
+    <script>
+        function handleDynamicIframeResize(event) {
+            if (event.data.frameHeight && event.data.frameId) {
+                const iframe = document.getElementById(event.data.frameId);
+                if (iframe) {
+                    // Add some extra height (+50px) to prevent scrollbars from appearing due to slight calculation differences or padding within the iframe content.
+                    iframe.style.height = (event.data.frameHeight + 50) + "px";
+                    iframe.style.overflow = 'hidden'; // Ensure content doesn't overflow
+                }
+            }
+        }
+        function initializeKomuthemeSnippets() {
+            document.querySelectorAll('iframe[data-base-url]').forEach(iframe => {
+                const baseUrl = iframe.getAttribute('data-base-url');
+                // Only load if a base URL is present and the src hasn't been set yet
+                if (!baseUrl || iframe.getAttribute('src')) return;
+
+                let params = [];
+                // Collect all data- attributes and convert them to URL parameters
+                for (const attr of iframe.attributes) {
+                    if (attr.name.startsWith('data-')) {
+                        // Convert 'data-base-url' to 'base_url' and encode values
+                        let key = attr.name.substring(5).replace(/-/g, '_');
+                        if (key === 'base_url') continue; // base_url is handled separately
+                        params.push(key + '=' + encodeURIComponent(attr.value));
+                    }
+                }
+                // Set the iframe's src with the base URL and concatenated parameters
+                iframe.src = baseUrl + '?' + params.join('&');
+            });
+        }
+        // Listen for messages from iframes to handle resizing
+        window.addEventListener("message", handleDynamicIframeResize, false);
+        // Initialize snippets once the DOM is fully loaded
+        document.addEventListener('DOMContentLoaded', initializeKomuthemeSnippets);
+    </script>
+    <!-- END REQUIRED KOMUTHEME SIZING SCRIPT -->
+
+</head>
+<body>
+
+    <!-- Daily Crumb Navbar -->
+    <iframe id="daily-crumb-navbar" src="" data-base-url="https://komutheme2.vercel.app/project/public/snippets/recipe/navbar.html" data-frame-id="daily-crumb-navbar" data-brand="Daily" data-brand_sub="CRUMB." data-link1_text="HOME" data-link1_href="#" data-link2_text="OUR BAKES" data-link2_href="#" data-link3_text="ABOUT US" data-link3_href="#" data-link4_text="CONTACT" data-link4_href="#" data-bg_color="ffffff" data-text_color="333333" data-accent_color="dbeafe" data-brand_color="1a1a1a" data-hover_color="3b82f6"> </iframe>
+
+    <!-- Daily Crumb Hero Section -->
+    <iframe id="daily-crumb-hero" src="" data-base-url="https://komutheme2.vercel.app/project/public/snippets/recipe/hero.html" data-frame-id="daily-crumb-hero" data-main_heading="FRESHLY BAKED DELIGHTS..." data-recipe1_img="https://images.unsplash.com/photo-1588195538326-f5791f4b7201?auto=format&fit=crop&w=600&q=80" data-recipe1_title="ARTISAN SOURDOUGH" data-recipe2_img="https://images.unsplash.com/photo-1542826284-47c7c10b4716?auto=format&fit=crop&w=600&q=80" data-recipe2_title="CHOCOLATE CHIP COOKIES" data-sidebar_title="WELCOME TO DAILY CRUMB! 👋" data-profile_img="https://images.unsplash.com/photo-1583098522736-24e0b04c867a?auto=format&fit=crop&w=300&q=80" data-bio_text="We craft delicious, wholesome baked goods from scratch, using only the finest ingredients. Indulge in our daily delights!" data-newsletter_text="GET DAILY SPECIALS & UPDATES IN YOUR INBOX! ♥" data-bg_color="ffffff" data-text_color="555555" data-heading_color="111111" data-accent_bg="f3f4f6"> </iframe>
+
+    <!-- Daily Crumb Features Section -->
+    <div class="container">
+        <iframe id="daily-crumb-features" src="" data-base-url="https://komutheme2.vercel.app/project/public/snippets/recipe/features.html" data-frame-id="daily-crumb-features" data-title1="Freshly Baked" data-desc1="Every item made from scratch, daily, for ultimate freshness." data-title2="Local Ingredients" data-desc2="We proudly source our ingredients from local farms and suppliers." data-title3="Wholesome & Delicious" data-desc3="Taste the quality and passion in every single, delightful bite." data-title4="Catering Available" data-desc4="Perfect for events, meetings, or special occasions. Contact us!" data-icon_bg="dbeafe"> </iframe>
+    </div>
+
+    <!-- Daily Crumb Category Cards (can be placed in a grid for side-by-side display) -->
+    <div class="two-column-grid">
+        <iframe id="daily-crumb-card-breads" src="" data-base-url="https://komutheme2.vercel.app/project/public/snippets/recipe/card.html" data-frame-id="daily-crumb-card-breads" data-icon="🍞" data-title="Artisan Breads" data-description="Sourdough, rye, baguettes & more. Baked fresh with love." data-btn_text="View Breads"> </iframe>
+        <iframe id="daily-crumb-card-pastries" src="" data-base-url="https://komutheme2.vercel.app/project/public/snippets/recipe/card.html" data-frame-id="daily-crumb-card-pastries" data-icon="🥐" data-title="Sweet Pastries" data-description="Croissants, muffins, danishes. Perfect with your morning coffee." data-btn_text="View Pastries"> </iframe>
+    </div>
+
+    <!-- Daily Crumb Testimonial -->
+    <div class="container">
+        <iframe id="daily-crumb-testimonial" src="" data-base-url="https://komutheme2.vercel.app/project/public/snippets/recipe/testimonial.html" data-frame-id="daily-crumb-testimonial" data-quote="Daily Crumb's sourdough is truly exceptional – crusty, flavorful, and incredibly fresh. It's become a weekly staple in our home!" data-author="Emily R." data-role="Happy Customer" data-avatar="https://images.unsplash.com/photo-1520332822-b5e1564070a2?auto=format&fit=crop&w=150&q=80" data-bg_color="f9fafb"> </iframe>
+    </div>
+
+    <!-- Daily Crumb FAQ Accordion -->
+    <div class="container">
+        <iframe id="daily-crumb-faq" src="" data-base-url="https://komutheme2.vercel.app/project/public/snippets/recipe/accordion.html" data-frame-id="daily-crumb-faq" data-title="Bakery Questions" data-q1="Do you offer custom cakes or catering?" data-a1="Yes, we absolutely do! For custom cake orders, please contact us at least one week in advance. For catering, we can provide a variety of baked goods for your event. Get in touch to discuss your needs!" data-q2="What are your daily specials?" data-a2="Our specials change daily based on seasonal ingredients and our bakers' creativity! Check our social media pages or visit us in-store to see what fresh delights we have today." data-q3="Are there gluten-free or vegan options?" data-a3="We offer a selection of gluten-free and vegan-friendly items marked clearly in-store. Please ask our staff if you have specific dietary requirements, and we'll be happy to help!"> </iframe>
+    </div>
+
+    <!-- Daily Crumb Image Section (Call to Action) -->
+    <iframe id="daily-crumb-image-cta" src="" data-base-url="https://komutheme2.vercel.app/project/public/snippets/recipe/image-section.html" data-frame-id="daily-crumb-image-cta" data-bg_image="https://images.unsplash.com/photo-1563720708970-98319e7a8e7e?auto=format&fit=crop&w=1200&q=80" data-heading="Baked with Passion" data-subheading="Handcrafted for your delight. Visit us today!"> </iframe>
+
+    <!-- Daily Crumb Newsletter -->
+    <div class="container">
+        <iframe id="daily-crumb-newsletter" src="" data-base-url="https://komutheme2.vercel.app/project/public/snippets/recipe/newsletter.html" data-frame-id="daily-crumb-newsletter" data-heading="Don't Miss a Crumb" data-subheading="Join 5,000+ subscribers getting daily specials, new bake announcements, and exclusive offers!" data-btn_text="Sign Me Up" data-bg_color="dbeafe"> </iframe>
+    </div>
+
+    <!-- Daily Crumb Footer -->
+    <iframe id="daily-crumb-footer" src="" data-base-url="https://komutheme2.vercel.app/project/public/snippets/recipe/footer.html" data-frame-id="daily-crumb-footer" data-col1_title="Explore" data-col1_links="Home|#,Our Bakes|#,About Us|#" data-col2_title="Connect" data-col2_links="Instagram|https://instagram.com/dailycrumb,Facebook|https://facebook.com/dailycrumb,Visit Us|#" data-col3_title="Info" data-col3_links="Privacy Policy|#,Terms of Service|#" data-copyright="© 2024 Daily Crumb. Baked with ♥."> </iframe>
+
+</body>
+</html>

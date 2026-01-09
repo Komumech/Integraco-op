@@ -1,0 +1,74 @@
+.partner-container{
+    background-color: #FDFDFD;
+}
+.partners-div {
+    width: 90%;
+    margin: 0 auto; /* Centers the container */
+    overflow: hidden;
+    background-color: #FDFDFD;
+    padding: 40px 2rem;
+    position: relative;
+
+    /* The Fade Effect Logic */
+    -webkit-mask-image: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 1) 15%,
+        rgba(0, 0, 0, 1) 85%,
+        rgba(0, 0, 0, 0) 100%
+    );
+    mask-image: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 1) 15%,
+        rgba(0, 0, 0, 1) 85%,
+        rgba(0, 0, 0, 0) 100%
+    );
+}
+
+/* Ensure the container is wide enough for the track */
+.partner-cont {
+    display: flex;
+    width: max-content;
+    gap: 60px;
+    animation: scroll 20s linear infinite;
+}
+
+/* Hover effect for individual cards */
+.partner {
+    flex: 0 0 13rem;
+    height: 7rem;
+    border-radius: 10px;
+    background-color: var(--card-bg-color);
+    border: 2px solid transparent;
+    transition: all 0.4s ease;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.partner img {
+    width: 60%;
+    transition: transform 0.4s ease;
+}
+
+.partner:hover {
+    border-color: var(--accent2-color);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px);
+}
+
+.partner:hover img {
+    transform: scale(1.2);
+}
+
+/* Pause scroll when hovering anywhere in the container */
+.partners-div:hover .partner-cont {
+    animation-play-state: paused;
+}
+
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-50% - 10px)); } 
+}

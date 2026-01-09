@@ -17,6 +17,7 @@ body{
 .logo{
     justify-self: flex-start;
     display: flex;
+    padding-left: 20px;
     flex-direction: row;
     align-items: center;
     justify-content: center;
@@ -56,7 +57,7 @@ body{
 .wave-btn {
     --btn-height: 45px; /* Slightly taller for a more modern look */
     height: var(--btn-height);
-    padding: 0 15px;
+    padding: 0 24px;
     border-radius: 10px;
     background-color: #1a1a1a;
     position: relative;
@@ -64,71 +65,44 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     border: none;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
 }
 
-/* THE LIQUID CONTAINER */
+/* THE EXPANDING CIRCLE */
 .wave-btn::before {
     content: "";
     position: absolute;
-    left: -50%;
-    top: 100%; /* Fully hidden below */
-    width: 200%;
-    height: 200%;
-    background-color: var(--primary-blue);
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 200'%3E%3Cpath fill='%230087ff' d='M0,100 C200,150 400,50 600,100 C800,150 1000,50 1200,100 C1400,150 1600,50 1600,100 L1600,200 L0,200 Z'%3E%3C/path%3E%3C/svg%3E");
-    background-size: 50% 80px;
-    background-repeat: repeat-x;
-    background-position: top center;
-    transition: top 0.6s cubic-bezier(0.77, 0, 0.175, 1);
-    z-index: 2;
-}
-
-/* THE TEXT WRAPPER */
-.btn-text {
-    position: relative;
-    font-size: 1.1rem;
-    font-weight: 500;
-    color: #ffffff;
-    z-index: 3;
-    pointer-events: none;
-}
-
-/* THE COLOR-SHIFTING LAYER */
-.btn-text::after {
-    content: attr(data-text);
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    color: var(--liquid-yellow);
-    /* Initially hide the yellow text */
-    clip-path: inset(100% 0 0 0);
-    transition: clip-path 0.6s cubic-bezier(0.77, 0, 0.175, 1);
-}
-
-/* ANIMATIONS & HOVER */
-@keyframes wave-move {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(50%); }
+    top: var(--y, 50%);
+    left: var(--x, 50%);
+    transform: translate(-50%, -50%);
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background-color: var(--accent2-color, #4da5fd);
+    transition: width 0.5s ease, height 0.5s ease;
+    z-index: 1;
 }
 
 .wave-btn:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(0,135,255,0.3);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
 }
 
 .wave-btn:hover::before {
-    top: 30%; /* Rises to cover about 70% of the button */
-    animation: wave-move 3s linear infinite;
+    width: 300px;
+    height: 300px;
 }
 
-.wave-btn:hover .btn-text::after {
-    /* Reveals the yellow text exactly as the water rises */
-    clip-path: inset(0 0 0 0);
+.btn-text {
+    position: relative;
+    z-index: 2;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #ffffff;
+    transition: color 0.3s ease;
 }
 
 .wave-btn:active {
@@ -141,21 +115,27 @@ body{
     margin-left: auto;
     margin-top: -4rem;
     align-items: center;
+    align-self: center;
     justify-self: right;
     position: relative;
 }
 .first{
-    margin-top: 0.5rem;
+    margin-top: 0.2rem;
     padding-right: 2rem;
    
 }
 .cta1{
-    height: 35px;
+    height: 45px;
 }
 .cta2{
-    height: 35px;
+    height: 45px;
     background-color: white;
-    color: black;
+}
+.cta2 .btn-text{
+    color: black !important;
+}
+.cta2:hover .btn-text {
+    color: white !important;
 }
 .second{
     margin-top: -2rem;
@@ -274,6 +254,17 @@ body{
     color: var(--text-color);
     font-weight: 600;
     margin: 0px;
+}
+.typing-text::after {
+    content: "|";
+    display: inline-block;
+    margin-left: 4px;
+    font-weight: 400;
+    animation: blink 1s step-start infinite;
+    color: inherit;
+}
+@keyframes blink {
+    50% { opacity: 0; }
 }
 .subline{
     display: block;
@@ -610,4 +601,27 @@ h3 { margin: 5px 0; font-family: 'Inter', sans-serif; }
 }
 .card:hover .catd-txt span:first-child{
     transform: rotate(12deg);
+}
+
+/* Fade Up Animation for Headers and Text */
+.headline, 
+.header .head, 
+.build-txt, 
+.earn-txt, 
+.review-text, 
+.catd-txt {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1.2s cubic-bezier(0.25, 1, 0.5, 1), transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+    will-change: opacity, transform;
+}
+
+.headline.show, 
+.header .head.show, 
+.build-txt.show, 
+.earn-txt.show, 
+.review-text.show, 
+.catd-txt.show {
+    opacity: 1;
+    transform: translateY(0);
 }

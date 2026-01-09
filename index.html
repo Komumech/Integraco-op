@@ -10,11 +10,16 @@
     <link rel="stylesheet" href="/style/index2.css">
     <link rel="stylesheet" href="/style/help.css">
     <link rel="stylesheet" href="/style/build.css">
+     <link rel="stylesheet" href="/style/partner.css">
+     <link rel="stylesheet" href="/style/reviews.css">
+    <link rel="stylesheet" href="/style/earn.css">
     <title>Integra Co-op | Secure Your Financial Freedom</title>
 </head>
 <style>
     :root{
     --accent-color: #1a1a1a;
+    --accent2-color: #4da5fd;
+    --accent3-color: #000ac2;
     --button-font-size: 1rem;
     --text-color: #292a2e;
     --hover-color: #847f7f;
@@ -22,7 +27,7 @@
     --button-color: #1a1a1a;
     --card-bg-color: rgb(255, 255, 255);
     --teal: rgb(79, 223, 154);
-    --red: #ef504a;
+    --red: #000000;
     --yellow: rgb(253, 228, 4);
 }
 
@@ -121,7 +126,7 @@
 
             <p class="headline">
                 
-                Financial Freedom for Everyone.
+                Financial Freedom for <span class="typing-text">Everyone.</span>
                 <br>
                 <span class="subline">
                     We believe your money should work as hard as you do. Join a community dedicated to your growth—save smarter, invest wisely, and build the future you deserve with Integra Co-op.
@@ -253,7 +258,7 @@
              </a>
                           </div>
                           <div class="build-img">
-                <img src="img7.png" alt="">
+                <img src="img8.png" alt="">
              </div>
         </div>
              <div class="build-card teal">
@@ -273,10 +278,10 @@
              </a>
                           </div>
                           <div class="build-img">
-                <img src="img7.png" alt="">
+                <img src="img9.png" alt="">
              </div>
         </div>
-                     <div class="build-card red">
+                     <div class="build-card black">
             <div class="txt">
             <p class="build-txt">
                 <span class="build-head">Pooled Investments</span>
@@ -293,7 +298,7 @@
              </a>
                           </div>
                           <div class="build-img">
-                <img src="img7.png" alt="">
+                <img src="img11.png" alt="">
              </div>
         </div>
 
@@ -314,14 +319,155 @@
              </a>
                           </div>
                           <div class="build-img">
-                <img src="img7.png" alt="">
+                <img src="img10.png" alt="">
              </div>
         </div>
 </div>
     </div>
-    <script>
-        // Intersection Observer for Card Animation
-        const observer = new IntersectionObserver((entries) => {
+
+<div class="partner-container">
+    <div class="partners-div">
+        <div class="partner-cont">
+            <div class="partner"><img src="https://cdn.brandfetch.io/google.com/logo" alt="Partner"></div>
+            <div class="partner"><img src="https://cdn.brandfetch.io/stripe.com/logo" alt="Partner"></div>
+            <div class="partner"><img src="https://cdn.brandfetch.io/meta.com/logo" alt="Partner"></div>
+            <div class="partner"><img src="https://cdn.brandfetch.io/airbnb.com/logo" alt="Partner"></div>
+            <div class="partner"><img src="https://cdn.brandfetch.io/hubspot.com/logo" alt="Partner"></div>
+            <div class="partner"><img src="https://cdn.brandfetch.io/slack.com/logo" alt="Partner"></div>
+        </div>
+    </div>
+</div>
+<div class="reviews-section">
+    <div class="header">
+        <p class="head">
+            Success Stories
+            <br>
+            <span class="subline">Slide to see how our members are growing.</span>
+        </p>
+    </div>
+
+    <div class="reviews-container">
+        <div class="reviews-wrapper" id="reviewTrack">
+            <div class="review-card is-visible">
+                <div class="card-top">
+                    <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <div class="quote-mark"><i class="fa-solid fa-quote-right"></i></div>
+                </div>
+                <p class="review-text">"Integra Co-op transformed my finances! I went from zero savings to owning my first investment property."</p>
+                <div class="user-profile">
+                    <div class="avatar-circle" style="background: #e3f2fd; color: #4da5fd;">CO</div>
+                    <div class="user-details">
+                        <h3 class="user-name">Chidinma Okafor</h3>
+                        <p class="user-meta">Digital Marketer • Lagos</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="review-card">
+                <div class="card-top">
+                    <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <div class="quote-mark"><i class="fa-solid fa-quote-right"></i></div>
+                </div>
+                <p class="review-text">"The Pooled Investment plan was exactly what I needed. Practical, transparent, and relevant to the market."</p>
+                <div class="user-profile">
+                    <div class="avatar-circle" style="background: #e8f5e9; color: #4fdf9a;">EA</div>
+                    <div class="user-details">
+                        <h3 class="user-name">Emmanuel Adesina</h3>
+                        <p class="user-meta">Product Designer • Abuja</p>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="review-card">
+                <div class="card-top">
+                    <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <div class="quote-mark"><i class="fa-solid fa-quote-right"></i></div>
+                </div>
+                <p class="review-text">"The Pooled Investment plan was exactly what I needed. Practical, transparent, and relevant to the market."</p>
+                <div class="user-profile">
+                    <div class="avatar-circle" style="background: #e8f5e9; color: #4fdf9a;">EA</div>
+                    <div class="user-details">
+                        <h3 class="user-name">Emmanuel Adesina</h3>
+                        <p class="user-meta">Product Designer • Abuja</p>
+                    </div>
+                </div>
+            </div>
+
+
+            
+            <div class="review-card">
+                <div class="card-top">
+                    <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <div class="quote-mark"><i class="fa-solid fa-quote-right"></i></div>
+                </div>
+                <p class="review-text">"The Pooled Investment plan was exactly what I needed. Practical, transparent, and relevant to the market."</p>
+                <div class="user-profile">
+                    <div class="avatar-circle" style="background: #e8f5e9; color: #4fdf9a;">EA</div>
+                    <div class="user-details">
+                        <h3 class="user-name">Emmanuel Adesina</h3>
+                        <p class="user-meta">Product Designer • Abuja</p>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="review-card">
+                <div class="card-top">
+                    <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <div class="quote-mark"><i class="fa-solid fa-quote-right"></i></div>
+                </div>
+                <p class="review-text">"Best decision for my career and pocket. The financial workshops are worth more than any bank advice."</p>
+                <div class="user-profile">
+                    <div class="avatar-circle" style="background: #fff3e0; color: #ff9800;">AN</div>
+                    <div class="user-details">
+                        <h3 class="user-name">Amara Nwosu</h3>
+                        <p class="user-meta">SEO Specialist • PH</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="earn-div">
+            <div class="header">
+            <p class="head">
+                Choose Your Path to Wealth
+                <span class="subline">
+                    From daily savings to long-term investments, we have a plan that fits your lifestyle.
+                </span>
+            </p>
+        </div>
+
+
+<div class="earn-cont">
+    <div class="earn-txt">
+        <p class="head"> 
+            Earn Ethical Returns 
+            <br>
+            <span class="subline earn">
+                Grow your wealth through transparent, interest-free profit sharing from our Halal-certified investment portfolios.
+            </span>
+        </p>
+        
+        <a href="#" class="build-link-wrapper">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M5 8V13C5 15.2091 6.79086 17 9 17H19M19 17L15 13M19 17L15 21" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>Start Earning</span>
+        </a>
+    </div>
+
+    <div class="earn-img">
+        <img src="img12.png" alt="Integra Ethical Earning Illustration">
+    </div>
+</div>
+</div>
+      <script>
+        // 1. General Page Animations
+        const pageObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('show');
@@ -329,33 +475,138 @@
                     entry.target.classList.remove('show');
                 }
             });
-        }, { threshold: 0.2 }); // Trigger when 20% of the container is visible
+        }, { threshold: 0.1 });
 
-        const cardContainer = document.querySelector('.card-container');
-        if(cardContainer) observer.observe(cardContainer);
+        const scrollElements = document.querySelectorAll('.card-container, .headline, .header .head, .build-txt, .earn-txt, .review-text, .catd-txt');
+        scrollElements.forEach(el => pageObserver.observe(el));
 
+        // 2. Navigation Scroll Effect
         const nav = document.querySelector('.top-nav');
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 10) {
-                nav.classList.add('scrolled');
-            } else {
-                nav.classList.remove('scrolled');
-            }
+            window.scrollY > 10 ? nav.classList.add('scrolled') : nav.classList.remove('scrolled');
         });
 
-        // Mobile Menu Logic
+        // 3. Mobile Menu
         const hamburger = document.querySelector('.hamburger');
         const mobileMenu = document.querySelector('.mobile-menu-overlay');
         const closeMenu = document.querySelector('.close-menu');
 
-        if (hamburger && mobileMenu && closeMenu) {
-            hamburger.addEventListener('click', () => {
-                mobileMenu.classList.add('active');
+        hamburger?.addEventListener('click', () => mobileMenu.classList.add('active'));
+        closeMenu?.addEventListener('click', () => mobileMenu.classList.remove('active'));
+
+        // 4. FIXED Review Slider Logic (Center Focus)
+        const reviewContainer = document.querySelector('.reviews-container');
+        const reviewCards = document.querySelectorAll('.review-card');
+
+        const updateActiveCard = () => {
+            const containerCenter = reviewContainer.getBoundingClientRect().left + reviewContainer.offsetWidth / 2;
+            
+            let closest = null;
+            let minDiff = Infinity;
+
+            reviewCards.forEach(card => {
+                const cardCenter = card.getBoundingClientRect().left + card.offsetWidth / 2;
+                const diff = Math.abs(cardCenter - containerCenter);
+                if (diff < minDiff) {
+                    minDiff = diff;
+                    closest = card;
+                }
             });
-            closeMenu.addEventListener('click', () => {
-                mobileMenu.classList.remove('active');
+
+            reviewCards.forEach(card => {
+                card.classList.toggle('is-visible', card === closest);
+            });
+        };
+
+        reviewContainer.addEventListener('scroll', () => window.requestAnimationFrame(updateActiveCard));
+        window.addEventListener('resize', updateActiveCard);
+        updateActiveCard(); // Initial call
+
+        // 5. Mouse Directional Scroll
+        let isMouseIn = false;
+        let mouseRelativeX = 0;
+
+        if (reviewContainer) {
+            reviewContainer.addEventListener('mouseenter', () => {
+                isMouseIn = true;
+                reviewContainer.style.scrollSnapType = 'none';
+                reviewContainer.style.scrollBehavior = 'auto';
+                requestAnimationFrame(processScroll);
+            });
+
+            reviewContainer.addEventListener('mousemove', (e) => {
+                const rect = reviewContainer.getBoundingClientRect();
+                const centerX = rect.width / 2;
+                const mouseX = e.clientX - rect.left;
+                // Calculate offset from center: -1 (left) to 1 (right)
+                mouseRelativeX = (mouseX - centerX) / centerX;
+            });
+
+            reviewContainer.addEventListener('mouseleave', () => {
+                isMouseIn = false;
+                reviewContainer.style.scrollSnapType = 'x mandatory';
+                reviewContainer.style.scrollBehavior = '';
             });
         }
+
+        function processScroll() {
+            if (!isMouseIn) return;
+            
+            // Deadzone: if within 15% of center, don't scroll
+            if (Math.abs(mouseRelativeX) > 0.15) {
+                // Speed factor (adjust 8 for faster/slower scroll)
+                const speed = mouseRelativeX * 8;
+                reviewContainer.scrollLeft += speed;
+            }
+            
+            requestAnimationFrame(processScroll);
+        }
+
+        // 6. Button Hover Effect (Mouse Fill)
+        document.querySelectorAll('.wave-btn').forEach(btn => {
+            btn.addEventListener('mousemove', (e) => {
+                const rect = btn.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                btn.style.setProperty('--x', `${x}px`);
+                btn.style.setProperty('--y', `${y}px`);
+            });
+        });
+
+        // 7. Typing Effect
+        const typeText = document.querySelector('.typing-text');
+        const words = ["Everyone.", "Families.", "Business.", "The Future."];
+        let wordIndex = 0;
+        let charIndex = words[0].length;
+        let isDeleting = true; // Start by deleting the existing text
+
+        function typeEffect() {
+            const currentWord = words[wordIndex];
+            
+            if (isDeleting) {
+                charIndex--;
+                typeText.textContent = currentWord.substring(0, charIndex);
+            } else {
+                charIndex++;
+                typeText.textContent = currentWord.substring(0, charIndex);
+            }
+
+            let typeSpeed = isDeleting ? 75 : 150;
+
+            if (!isDeleting && charIndex === currentWord.length) {
+                isDeleting = true;
+                typeSpeed = 2000; // Pause at end
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                wordIndex = (wordIndex + 1) % words.length;
+                typeSpeed = 500; // Pause before next word
+            }
+
+            setTimeout(typeEffect, typeSpeed);
+        }
+
+        if(typeText) setTimeout(typeEffect, 2000);
     </script>
+    
 </body>
 </html>
