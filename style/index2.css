@@ -511,7 +511,7 @@ h3 { margin: 5px 0; font-family: 'Inter', sans-serif; }
         width: 100%;
         margin: 0;
     }
-    .box-1, .box-2, .box-3{
+    .box-1, .box-2{
         display: none;
     }
     .build-img img{
