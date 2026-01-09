@@ -491,8 +491,8 @@ h3 { margin: 5px 0; font-family: 'Inter', sans-serif; }
     }
 
     .top-nav {
-        width: 90%;
-        padding: 10px 0;
+        width: 100%;
+        padding: 0px;
     }
 
     /* Hero Adjustments for Mobile */
@@ -511,7 +511,7 @@ h3 { margin: 5px 0; font-family: 'Inter', sans-serif; }
         width: 100%;
         margin: 0;
     }
-    .box-1, .box-2{
+    .box-1, .box-2, .box-3{
         display: none;
     }
     .build-img img{

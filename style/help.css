@@ -38,4 +38,19 @@
     margin: 0 auto;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+    .card-container {
+        flex-direction: column;
+        width: 90%;
+        overflow: hidden;
+    }
+    .card {
+        width: 80%;
+        height: auto;
+        min-height: 160px;
+        padding: 25px;
+    }
 }

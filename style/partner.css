@@ -72,3 +72,13 @@
     0% { transform: translateX(0); }
     100% { transform: translateX(calc(-50% - 10px)); } 
 }
+
+@media (max-width: 768px) {
+    .partners-div {
+        padding: 20px 1rem;
+    }
+    .partner {
+        flex: 0 0 9rem;
+        height: 5rem;
+    }
+}

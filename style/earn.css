@@ -40,3 +40,26 @@
     height: auto;
     border-radius: 20px;
 }
+
+@media (max-width: 768px) {
+    .earn-cont {
+        flex-direction: column;
+        height: auto;
+        width: 82vw;
+        padding: 40px 20px;
+    }
+    .earn-txt {
+        width: 100%;
+        text-align: center;
+    }
+    .earn-img img {
+        width: 85vw;
+margin: 0;
+        justify-content: center;
+        
+    }
+    .earn-img{
+        display: block;
+        margin: 0 auto;
+    }
+}

@@ -168,10 +168,17 @@
 @media(max-width: 768px){
     .build-cont{
         grid-template-columns: 100%;
+        width: 90vw;
+        gap: 1.5rem;
     }
     .build-card{
-        width: 60vw;
+        width: 75%;
+        margin: 0 auto;
+        height: auto;
+        min-height: 300px;
+        padding: 30px;
     }
-
-
+    .build-img {
+        display: none;
+    }
 }
