@@ -31,7 +31,9 @@
     --red: #000000;
     --yellow: rgb(253, 228, 4);
 }
-
+body{
+    margin: 0px;
+}
 .top-nav {
     position: fixed;
     top: 0;
@@ -62,7 +64,7 @@
         <div class="navlinks">
             <ul>
                 <li><a href="#">Home</a></li>
-                <li><a href="#">About Us</a></li>
+                <li><a href="about.html">About Us</a></li>
                 <li><a href="#">Services</a></li>
                 <li><a href="#">Contact</a></li>
             </ul>
@@ -72,7 +74,7 @@
         <span class="btn-text" data-text="Learn more">Learn more</span>
     </button>
     <button class="cta2 wave-btn">
-        <span class="btn-text">Join Now</span>
+        <span class="btn-text" data-text="Join Now">Join Now</span>
     </button>
 </div>
         <div class="hamburger">
@@ -137,7 +139,7 @@
         <span class="btn-text" data-text="Learn more">Learn more</span>
     </button>
     <button class="cta1 wave-btn">
-        <span class="btn-text" data-text="Create free account">Create free account</span>
+        <span class="btn-text" data-text="Join">Join</span>
     </button>
 </div>
             </p>
@@ -175,6 +177,26 @@
         </div>
     </div>
 
+    <div class="stats-section">
+        <div class="stats-container">
+            <div class="stat-card">
+                <h3 class="stat-blue">2,000+</h3>
+                <p>Students Trained</p>
+            </div>
+            <div class="stat-card">
+                <h3 class="stat-orange">6+</h3>
+                <p>Years of Impact</p>
+            </div>
+            <div class="stat-card">
+                <h3 class="stat-green">12+</h3>
+                <p>Expert Courses</p>
+            </div>
+            <div class="stat-card">
+                <h3 class="stat-blue">5</h3>
+                <p>Countries Target</p>
+            </div>
+        </div>
+    </div>
 
     <div class="help">
         <div class="header">
@@ -465,6 +487,70 @@
     </div>
 </div>
 </div>
+
+<div class="newsletter-section">
+    <div class="newsletter-circle nc-1"></div>
+    <div class="newsletter-circle nc-2"></div>
+    <div class="newsletter-content">
+        <div class="newsletter-icon">
+            <i class="fa-regular fa-envelope"></i>
+        </div>
+        <h2>Stay Updated with Integra Co-op</h2>
+        <p class="newsletter-sub">Get the latest financial insights, course updates, and exclusive opportunities delivered to your inbox. Join 5000+ subscribers!</p>
+        <form class="newsletter-form" onsubmit="event.preventDefault();">
+            <div class="newsletter-input-wrapper">
+                <input type="email" placeholder="Enter your email" required>
+            </div>
+            <button type="submit" class="wave-btn"><span class="btn-text">Subscribe</span></button>
+        </form>
+        <p class="privacy-text">We respect your privacy. Unsubscribe at any time.</p>
+
+    </div>
+</div>
+
+<footer class="main-footer">
+    <div class="footer-top">
+        <div class="footer-newsletter">
+            <h3>Sign up for our newsletter</h3>
+            <p>Don't worry, we reserve our newsletter for important news as we only send a few updates a year.</p>
+            <button class="footer-sub-btn wave-btn"><span class="btn-text">Subscribe</span></button>
+        </div>
+        <div class="footer-nav">
+            <div class="footer-col">
+                <h4>Help and services</h4>
+                <ul>
+                    <li><a href="#">How does it work</a></li>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>To explore</h4>
+                <ul>
+                    <li><a href="#">Accommodations</a></li>
+                    <li><a href="#">Experiences</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Other possibilities</h4>
+                <ul>
+                    <li><a href="#">Give away</a></li>
+                    <li><a href="#">Subscribe</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2025 Integra Co-op. All rights reserved.</p>
+        <div class="footer-socials">
+            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+    </div>
+</footer>
+
       <script>
         // 1. General Page Animations
         const pageObserver = new IntersectionObserver((entries) => {
@@ -477,7 +563,7 @@
             });
         }, { threshold: 0.1 });
 
-        const scrollElements = document.querySelectorAll('.card-container, .headline, .header .head, .build-txt, .earn-txt, .review-text, .catd-txt');
+        const scrollElements = document.querySelectorAll('.card-container, .stats-container, .headline, .header .head, .build-txt, .earn-txt, .review-text, .catd-txt, .newsletter-content, .footer-top, .footer-bottom');
         scrollElements.forEach(el => pageObserver.observe(el));
 
         // 2. Navigation Scroll Effect
@@ -606,7 +692,37 @@
         }
 
         if(typeText) setTimeout(typeEffect, 2000);
+
+        // 8. Newsletter Floating Circles (Mouse Response)
+        const newsletterSection = document.querySelector('.newsletter-section');
+        if(newsletterSection) {
+            newsletterSection.addEventListener('mousemove', (e) => {
+                const circles = newsletterSection.querySelectorAll('.newsletter-circle');
+                const rect = newsletterSection.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+
+                circles.forEach((circle, index) => {
+                    const speed = (index + 1) * 15; // Different speeds for depth
+                    const xOffset = (x - rect.width / 2) / speed;
+                    const yOffset = (y - rect.height / 2) / speed;
+                    circle.style.transform = `translate(${xOffset}px, ${yOffset}px)`;
+                });
+            });
+        }
+
+        // 9. Active Link Highlighter
+        const currentPath = window.location.pathname.split("/").pop() || 'index.html';
+        const navLinks = document.querySelectorAll('.navlinks ul li a[href]');
+        navLinks.forEach(link => {
+            // Check if href matches current page
+            if(link.getAttribute('href') === currentPath) {
+                link.classList.add('active');
+            }
+        });
     </script>
+        
+    
     
 </body>
 </html>

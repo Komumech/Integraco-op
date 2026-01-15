@@ -1,0 +1,262 @@
+/* --- HERO STACKED CARDS (About Page) --- */
+.hero-stack {
+    position: relative;
+    width: 450px;
+    height: 320px;
+    margin: 0 auto;
+    perspective: 1000px;
+}
+
+.stack-card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    transition: transform 0.6s cubic-bezier(0.4, 0.0, 0.2, 1), opacity 0.6s ease, z-index 0s;
+    background: white;
+    border: 1px solid rgb(0, 0, 0);
+}
+.right{
+    overflow: hidden;
+    padding: 20px;
+}
+.stack-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Stack Positions */
+.s-card-1 {
+    z-index: 3;
+    transform: rotate(-3deg) translate(0, 0) scale(1);
+    opacity: 1;
+}
+
+.s-card-2 {
+    z-index: 2;
+    transform: rotate(4deg) translate(15px, -10px) scale(0.95);
+    opacity: 0.9;
+}
+
+.s-card-3 {
+    z-index: 1;
+    transform: rotate(-6deg) translate(-10px, -20px) scale(0.9);
+    opacity: 0.8;
+}
+
+/* Fly Out Animation Class */
+.s-card-out {
+    transform: translate(120%, 50px) rotate(20deg) !important;
+    opacity: 0 !important;
+    pointer-events: none;
+}
+
+@keyframes borderGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+
+}
+
+/* --- JOURNEY SECTION --- */
+.journey-section {
+    padding: 80px 5%;
+    background-color: #f8f9fa;
+    overflow: hidden;
+    margin-top: 4rem;
+}
+
+.timeline-container {
+    position: relative;
+    max-width: 1000px;
+    margin: 60px auto 0;
+    padding: 20px 0;
+}
+
+/* The Grey Background Line */
+.timeline-line {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: #e0e0e0;
+    transform: translateX(-50%);
+    border-radius: 4px;
+}
+
+/* The Colored Progress Line */
+.timeline-progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 106%;
+    height: 0%;
+    background: var(--accent2-color, #4da5fd);
+    border-radius: 4px;
+    transition: height 0.1s linear;
+}
+
+.timeline-item {
+    position: relative;
+    width: 50%;
+    padding: 30px;
+    box-sizing: border-box;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease;
+}
+
+.timeline-item.left { left: 0; text-align: right; }
+.timeline-item.right { 
+    left: 50%; 
+    text-align: left; 
+    transform: translateY(60px); /* Stagger the reveal */
+}
+
+.timeline-item:nth-child(even) { transform: translateY(80px); }
+
+.timeline-dot {
+    position: absolute;
+    top: 40px;
+    width: 20px;
+    height: 20px;
+    background: white;
+    border: 4px solid var(--accent2-color, #4da5fd);
+    border-radius: 50%;
+    z-index: 2;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.timeline-item.left .timeline-dot { right: -12px; }
+.timeline-item.right .timeline-dot { left: -12px; }
+
+.timeline-item.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.timeline-item.active .timeline-dot {
+    background: var(--accent2-color, #4da5fd);
+    transform: scale(1.2);
+}
+
+.timeline-card {
+    background: white;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.timeline-card .year {
+    display: inline-block;
+    padding: 6px 14px;
+    background: rgba(77, 165, 253, 0.1);
+    color: var(--accent2-color, #4da5fd);
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.timeline-card h3 { margin: 10px 0; font-size: 1.5rem; color: #1a1a1a; }
+.timeline-card p { color: #666; line-height: 1.6; margin: 0; }
+
+@media (max-width: 768px) {
+    .timeline-line { left: 30px; }
+    .timeline-item { width: 100%; padding-left: 70px; padding-right: 0; text-align: left; }
+    .timeline-item.left, .timeline-item.right { left: 0; }
+    .timeline-item.left .timeline-dot, .timeline-item.right .timeline-dot {
+        left: 18px; /* Center on the 30px line */
+        right: auto;
+    }
+}
+
+
+    transition: all 0.4s ease-in-out;
+    color: rgb(62, 59, 59);
+}
+.navlinks ul li a.active {
+    color: var(--accent2-color);
+    font-weight: 700;
+    position: relative;
+}
+.navlinks ul li a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--accent2-color);
+    border-radius: 2px;
+}
+
+/* --- STATS SECTION (Matches kol.png) --- */
+.stats-section {
+    padding: 60px 5%;
+    background-color: #f9f9f9;
+    margin-top: 4rem;
+}
+
+.stats-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.stat-card {
+    background: white;
+    padding: 40px 20px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    text-align: center;
+    flex: 1;
+    min-width: 220px;
+    max-width: 280px;
+    border: 1px solid #eee;
+    
+    /* Animation Init (Matches Help Cards) */
+    opacity: 0;
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.stat-card h3 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin: 0 0 10px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.stat-card p {
+    color: #666;
+    font-size: 1rem;
+    font-weight: 500;
+    margin: 0;
+}
+
+.stat-blue { color: #0077cc; }
+.stat-orange { color: #c25e00; }
+.stat-green { color: #00b85c; }
+
+/* Animation Logic: Slide together */
+.stat-card:nth-child(odd) { transform: translateX(50px); }
+.stat-card:nth-child(even) { transform: translateX(-50px); }
+
+.stats-container.show .stat-card {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.stats-container.show .stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
