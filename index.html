@@ -56,6 +56,9 @@ body{
 }
 </style>
 <body>
+    <!-- Page Transition Element -->
+    <div class="page-transition"></div>
+
     <nav class="top-nav">
         <div class="logo">
             <img src="https://integraco-op.vercel.app/logo.png" alt="" srcset="">
@@ -63,7 +66,7 @@ body{
         </div>
         <div class="navlinks">
             <ul>
-                <li><a href="#">Home</a></li>
+                <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About Us</a></li>
                 <li><a href="#">Services</a></li>
                 <li><a href="#">Contact</a></li>
@@ -712,13 +715,43 @@ body{
         }
 
         // 9. Active Link Highlighter
-        const currentPath = window.location.pathname.split("/").pop() || 'index.html';
+        const currentPath = window.location.pathname.split("/").pop();
         const navLinks = document.querySelectorAll('.navlinks ul li a[href]');
+        
         navLinks.forEach(link => {
-            // Check if href matches current page
-            if(link.getAttribute('href') === currentPath) {
+            const href = link.getAttribute('href');
+            // Match index.html or root path
+            if (href === currentPath || 
+               (href === 'index.html' && (currentPath === '' || currentPath === '/'))) {
                 link.classList.add('active');
             }
+        });
+
+        // 10. Page Transition Logic
+        const transitionEl = document.querySelector('.page-transition');
+        
+        // Reveal Page on Load
+        window.addEventListener('load', () => {
+            if(transitionEl) {
+                transitionEl.style.transformOrigin = 'bottom';
+                transitionEl.style.transform = 'scaleY(0)';
+            }
+        });
+
+        // Handle Link Clicks
+        document.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', e => {
+                const href = link.getAttribute('href');
+                // Check if internal link and not hash/anchor
+                if(href && !href.startsWith('#') && !href.startsWith('mailto:') && link.target !== '_blank') {
+                    e.preventDefault();
+                    transitionEl.style.transformOrigin = 'top';
+                    transitionEl.style.transform = 'scaleY(1)';
+                    setTimeout(() => {
+                        window.location.href = href;
+                    }, 800); // Match CSS transition duration
+                }
+            });
         });
     </script>
         
