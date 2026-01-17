@@ -1,0 +1,83 @@
+/* --- STORY SECTION --- */
+.story {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 80px 5%;
+    gap: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.story .left { flex: 1; }
+.story .right { 
+    flex: 1; 
+    overflow: visible;
+    position: relative;
+    z-index: 1;
+}
+
+.story-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    height: 450px;
+}
+
+.story-col {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.story-card {
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.story-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.story-card:hover img { transform: scale(1.05); }
+.story-card.full { height: 100%; }
+.story-card.half { height: calc(50% - 10px); }
+.story-card.offset { margin-top: 40px; }
+
+/* --- DECORATIVE ELEMENTS (ji.png style) --- */
+.bg-dots {
+    position: absolute;
+    bottom: -30px;
+    left: 15%;
+    width: 140px;
+    height: 140px;
+    /* Creates a grid of light blue dots */
+    background-image: radial-gradient(#bfdbfe 4px, transparent 5px);
+    background-size: 24px 24px;
+    z-index: -1;
+    opacity: 1;
+}
+
+.story .head {
+    text-align: left;
+}
+.story .head .subline{
+    width: 90%;
+    text-align: left;
+}
+
+.bg-shape {
+    position: absolute;
+    top: 20px;
+    right: 10%;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--accent2-color, #4da5fd);
+    z-index: -1;
+}

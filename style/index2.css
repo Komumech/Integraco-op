@@ -169,7 +169,7 @@ body{
     border-radius: 50px;
     text-decoration: none;
     transition: background-color 0.3s ease;
-    background-color: #003c9c; /* Dark blue/black */
+    background-color: #171718; /* Dark blue/black */
     color: white;
     font-family: 'Inter', sans-serif;
     cursor: pointer;
@@ -183,7 +183,7 @@ body{
 }
 
 .status-indicator { 
-    fill: #19be00; /* Success Green */
+    fill: var(--accent3-color); /* Success Green */
     transition: fill 0.3s ease;
 }
 
@@ -221,7 +221,7 @@ body{
 
 /* Main Background */
 .report-banner:hover {
-    background-color: #0087ff; /* Bright blue on hover */
+    background-color: #353535; /* Bright blue on hover */
 }
 
 /* Badge Colors */
@@ -266,7 +266,7 @@ body{
     width: 90%;
 }
 .headline{
-    width: 70%;
+    width: 80%;
     font-size: 2.9rem;
     color: var(--text-color);
     font-weight: 600;
@@ -632,7 +632,7 @@ h3 { margin: 5px 0; font-family: 'Inter', sans-serif; }
 .footer-bottom {
     opacity: 0;
     transform: translateY(30px);
-    transition: opacity 1.2s cubic-bezier(0.25, 1, 0.5, 1), transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+    transition: opacity 1.8s cubic-bezier(0.25, 1, 0.5, 1), transform 1.8s cubic-bezier(0.25, 1, 0.5, 1);
     will-change: opacity, transform;
 }
 
@@ -1023,15 +1023,161 @@ h3 { margin: 5px 0; font-family: 'Inter', sans-serif; }
     box-shadow: 0 15px 35px rgba(0,0,0,0.1);
 }
 
-/* --- PAGE TRANSITION OVERLAY --- */
-.page-transition {
+/* --- CONTENT TRANSITION (Everything but Navbar) --- */
+
+/* Default State: Visible */
+body > *:not(.top-nav):not(.mobile-menu-overlay):not(script):not(style):not(link):not(meta) {
+    transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Hidden State (Entry Start / Exit End) */
+body.content-hidden > *:not(.top-nav):not(.mobile-menu-overlay):not(script):not(style):not(link):not(meta) {
+    opacity: 0;
+    transform: translateY(30px); /* Slide effect */
+}
+
+/* --- CUSTOM CURSOR --- */
+.cursor-dot,
+.cursor-outline {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #1a1a1a; /* Dark shutter color */
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
     z-index: 9999;
-    transform: scaleY(1);
-    transition: transform 0.8s cubic-bezier(0.8, 0, 0.2, 1);
+    pointer-events: none;
+    display: none; /* Hidden on touch devices via media query usually, or JS detection */
 }
+
+@media (pointer: fine) {
+    .cursor-dot, .cursor-outline { display: block; }
+    body { cursor: none; } /* Hide default cursor */
+}
+
+.cursor-dot {
+    width: 10px;
+    height: 10px;
+    background-color: var(--accent2-color, #4da5fd);
+    box-shadow: 0 0 8px var(--accent2-color, #4da5fd);
+    transition: width 0.3s ease, height 0.3s ease, background-color 0.3s ease;
+}
+
+.cursor-outline {
+    width: 45px;
+    height: 45px;
+    border: 2px solid rgba(77, 165, 253, 0.4);
+    box-shadow: 0 0 15px rgba(77, 165, 253, 0.2);
+    transition: width 0.3s cubic-bezier(0.25, 1, 0.5, 1), 
+                height 0.3s cubic-bezier(0.25, 1, 0.5, 1), 
+                background-color 0.3s, border-color 0.3s;
+}
+
+body.hovering .cursor-dot {
+    background-color: rgba(77, 5, 253, 0.1);
+    border-color: var(--accent2-color, #4da5fd);
+    box-shadow: 0 0 25 rgba(77, 165, 253, 0.4);
+}
+
+/* --- BUILD CARD STAGGERED ANIMATION --- */
+.build-card {
+    opacity: 0;
+    transform: translateY(60px);
+    transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.build-card.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Stagger Delays ONLY on Entrance for a slick sequence */
+.build-card.show:nth-child(1) { transition-delay: 0s; }
+.build-card.show:nth-child(2) { transition-delay: 0.1s; }
+.build-card.show:nth-child(3) { transition-delay: 0.2s; }
+.build-card.show:nth-child(4) { transition-delay: 0.3s; }
+
+/* --- BUILD SECTION TIMELINE LAYOUT (olk.png style) --- */
+.build-cont {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 20px 0;
+}
+
+/* Central Line */
+.build-cont::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 4px;
+    background: linear-gradient(to bottom, #e0e0e0, var(--accent2-color), #e0e0e0);
+    transform: translateX(-50%);
+    border-radius: 4px;
+}
+
+/* Card Layout & Connector Dots */
+.build-card {
+    position: relative;
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    z-index: 1;
+}
+
+.build-card::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 16px;
+    height: 16px;
+    background: white;
+    border: 4px solid var(--accent2-color, #4da5fd);
+    border-radius: 50%;
+    z-index: 2;
+    transform: translateY(-50%);
+    box-shadow: 0 0 0 4px rgba(77, 165, 253, 0.2);
+}
+
+/* Color Variants for Dots */
+.build-card.teal::after { border-color: var(--teal); box-shadow: 0 0 0 4px rgba(79, 223, 154, 0.2); }
+.build-card.black::after { border-color: black; box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.1); }
+.build-card.yellow::after { border-color: var(--yellow); box-shadow: 0 0 0 4px rgba(253, 228, 4, 0.2); }
+
+/* Left Column */
+.build-card:nth-child(odd) {
+    grid-column: 1;
+    margin-right:80px;
+}
+.build-card:nth-child(odd)::after { right: -68px; }
+
+.build-card:nth-child(even) {
+    margin-left: 40px;
+    text-align: left;
+    margin-top: 9rem;
+}
+.build-card:nth-child(even)::after { left: -68px; }
+
+@media (max-width: 768px) {
+    .build-card::after { left: -28px !important; right: auto !important; }
+}
+    
+@media (max-width: 768px) {
+    .build-card::after { left: -28px !important; right: auto !important; }
+}
+    
+@media (max-width: 768px) {
+    .build-card::after { left: -28px !important; right: auto !important; }
+}
+    
+@media (max-width: 768px) {
+    .build-card::after { left: -28px !important; right: auto !important; }
+}
+    

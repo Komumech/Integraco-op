@@ -14,6 +14,7 @@
      <link rel="stylesheet" href="/style/reviews.css">
     <link rel="stylesheet" href="/style/earn.css">
     <link rel="stylesheet" href="/style/about.css">
+    <link rel="stylesheet" href="/style/story.css">
     <title>Integra Co-op | Secure Your Financial Freedom</title>
     <link rel="icon" href="https://integraco-op.vercel.app/logo.png" type="image/png">
 </head>
@@ -56,9 +57,9 @@ body{
     }
 }
 </style>
-<body>
-    <!-- Page Transition Element -->
-    <div class="page-transition"></div>
+<body class="content-hidden">
+    <!-- Custom Cursor Elements -->
+    <div class="cursor-dot"></div>
 
     <nav class="top-nav">
         <div class="logo">
@@ -68,7 +69,7 @@ body{
         <div class="navlinks">
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="#">About Us</a></li>
+                <li><a href="about.html">About Us</a></li>
                 <li><a href="#">Services</a></li>
                 <li><a href="#">Contact</a></li>
             </ul>
@@ -142,56 +143,33 @@ body{
         </div>
     </div>
 
-    <!-- Journey Section -->
-    <div class="journey-section">
-        <div class="header">
-            <p class="head">The Journey So Far</p>
-            <span class="subline">From a small idea to a thriving community.</span>
-        </div>
-        <div class="timeline-container">
-            <div class="timeline-line">
-                <div class="timeline-progress"></div>
-            </div>
-            
-            <div class="timeline-item left">
-                <div class="timeline-dot"></div>
-                <div class="timeline-card">
-                    <span class="year">2019</span>
-                    <h3>The Beginning</h3>
-                    <p>Integra Co-op was founded with a mission: make finance accessible.</p>
-                </div>
-            </div>
+<div class="story">
 
-            <div class="timeline-item right">
-                <div class="timeline-dot"></div>
-                <div class="timeline-card">
-                    
-                    <span class="year">2021</span>
-                    <h3>Community Growth</h3>
-                    <p>Reached 1,000 members & launched "Pooled Investment" program.</p>
-                </div>
+    <div class="right">
+        <!-- Decorative Background Elements -->
+        <div class="bg-dots"></div>
+        <div class="bg-shape"></div>
+        <div class="story-grid">
+            <div class="story-col">
+                <div class="story-card half"><img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Teamwork"></div>
+                <div class="story-card half"><img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80" alt="Meeting"></div>
             </div>
-
-            <div class="timeline-item left">
-                <div class="timeline-dot"></div>
-                <div class="timeline-card">
-                    
-                    <span class="year">2023</span>
-                    <h3>Digital Transformation</h3>
-                    <p>Launched the Integra Mobile App,track growth from anywhere.</p>
-                </div>
-            </div>
-
-            <div class="timeline-item right">
-                <div class="timeline-dot"></div>
-                <div class="timeline-card">
-                    <span class="year">2025</span>
-                    <h3>Global Reach</h3>
-                    <p>Expanding our educational programs to 5 countries and empowering over 10,000 students financially.</p>
-                </div>
+            <div class="story-col">
+                <div class="story-card full offset"><img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=800&q=80" alt="Office"></div>
             </div>
         </div>
     </div>
+
+        <div class="left">
+        <p class="head">
+            Our Story
+            <br>
+            <span class="subline">
+                Founded in 2020, Integra Co-op was born from a vision to create a financial cooperative that truly serves its members. We believe in the power of community and collective growth, and our mission is to provide accessible, ethical, and innovative financial solutions that empower individuals and families to achieve their financial goals.
+            </span>
+        </p>
+    </div>
+</div>
 
 
     
@@ -253,7 +231,7 @@ body{
             });
         }, { threshold: 0.1 });
 
-        const scrollElements = document.querySelectorAll('.card-container, .headline, .header .head, .build-txt, .earn-txt, .review-text, .catd-txt, .newsletter-content, .footer-top, .footer-bottom');
+        const scrollElements = document.querySelectorAll('.card-container, .stats-container, .headline, .header .head, .build-txt, .earn-txt, .review-text, .catd-txt, .newsletter-content, .footer-top, .footer-bottom, .timeline-item');
         scrollElements.forEach(el => pageObserver.observe(el));
 
         // 2. Navigation Scroll Effect
@@ -422,10 +400,17 @@ body{
                     setTimeout(() => {
                         c1.classList.remove('s-card-out');
 
+                        // Disable transition for the card moving to the back so it snaps instantly
+                        c1.style.transition = 'none';
+
                         // Rotate classes
                         c1.classList.remove('s-card-1'); c1.classList.add('s-card-3');
                         c2.classList.remove('s-card-2'); c2.classList.add('s-card-1');
                         c3.classList.remove('s-card-3'); c3.classList.add('s-card-2');
+
+                        // Force reflow to apply the class change without transition
+                        void c1.offsetWidth;
+                        c1.style.transition = '';
                     }, 500); // Wait for fly-out animation
                 }
             };
@@ -443,35 +428,61 @@ body{
             heroStack.addEventListener('mouseleave', startFlip);
         }
 
-        // 10. Journey Timeline Animation
-        const timelineContainer = document.querySelector('.timeline-container');
-        const progressLine = document.querySelector('.timeline-progress');
-        const timelineItems = document.querySelectorAll('.timeline-item');
+        // 10. Active Link Highlighter
+        const currentPath = window.location.pathname.split("/").pop();
+        const navLinks = document.querySelectorAll('.navlinks ul li a[href]');
+        
+        navLinks.forEach(link => {
+            const href = link.getAttribute('href');
+            
+            // Normalize paths to handle extensions and root
+            const pathName = currentPath.toLowerCase().replace('.html', '');
+            const linkName = href.toLowerCase().replace('.html', '');
 
-        if (timelineContainer && progressLine) {
-            window.addEventListener('scroll', () => {
-                const rect = timelineContainer.getBoundingClientRect();
-                const windowHeight = window.innerHeight;
-                const containerHeight = timelineContainer.offsetHeight;
-                
-                // Start filling when the top of the container hits the middle of the screen
-                const startOffset = windowHeight / 1.5;
-                let scrollY = startOffset - rect.top;
-                
-                let percentage = (scrollY / containerHeight) * 100;
-                percentage = Math.max(0, Math.min(100, percentage));
-                
-                progressLine.style.height = `${percentage}%`;
+            if (pathName === linkName || (linkName === 'index' && pathName === '')) {
+                link.classList.add('active');
+            }
+        });
 
-                // Reveal items as the line passes them
-                timelineItems.forEach(item => {
-                    // Add a small buffer (50px) so it activates just as the line reaches the dot
-                    if (scrollY > (item.offsetTop + 50)) {
-                        item.classList.add('active');
-                    }
-                });
+        // 12. Custom Cursor Logic
+        const cursorDot = document.querySelector('.cursor-dot');
+
+        if (window.matchMedia("(pointer: fine)").matches) {
+            window.addEventListener('mousemove', (e) => {
+                const posX = e.clientX;
+                const posY = e.clientY;
+
+                // Dot follows instantly
+                cursorDot.style.left = `${posX}px`;
+                cursorDot.style.top = `${posY}px`;
+            });
+
+            // Hover Effect for Interactive Elements
+            const interactiveEls = document.querySelectorAll('a, button, .card, .build-card, input, .timeline-card, .story-card');
+            interactiveEls.forEach(el => {
+                el.addEventListener('mouseenter', () => document.body.classList.add('hovering'));
+                el.addEventListener('mouseleave', () => document.body.classList.remove('hovering'));
             });
         }
+
+        // 11. Page Transition Logic
+        window.addEventListener('load', () => {
+            document.body.classList.remove('content-hidden');
+        });
+
+        document.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', e => {
+                const href = link.getAttribute('href');
+                // Check if internal link and not hash/anchor
+                if(href && !href.startsWith('#') && !href.startsWith('mailto:') && link.target !== '_blank') {
+                    e.preventDefault();
+                    document.body.classList.add('content-hidden');
+                    setTimeout(() => {
+                        window.location.href = href;
+                    }, 600); // Match CSS transition duration
+                }
+            });
+        });
     </script>
     
 </body>

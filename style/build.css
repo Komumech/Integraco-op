@@ -96,8 +96,18 @@
 }
 .build-link{
 }
+.teal{
+    margin-top: 45rem;
+}
+.black{
+    margin-top: -5rem;
+}
+.yellow{
+    margin-top: 12rem;
+}
 .blue .build-link{
     color: blue;
+    
     transition: all 0.3s ease-in-out;
     position: absolute;
 }
