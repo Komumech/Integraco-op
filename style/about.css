@@ -253,3 +253,14 @@
     transform: translateY(-5px);
     box-shadow: 0 15px 35px rgba(0,0,0,0.1);
 }
+@media(max-width: 600px){
+    .hero-stack {
+        width: 90vw;
+    }
+    .stats-container{
+        overflow-x: hidden;
+    }
+    .right{
+        padding: 0px;
+    }
+}

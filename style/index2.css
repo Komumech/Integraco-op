@@ -520,8 +520,10 @@ h3 { margin: 5px 0; font-family: 'Inter', sans-serif; }
     }
 
     .headline {
-        width: 100%;
+        width: 90%;
+        margin: 0 auto;
         font-size: 2.2rem;
+        overflow-x: hidden;
     }
 
     .right, .left {
@@ -1166,18 +1168,22 @@ body.hovering .cursor-dot {
 .build-card:nth-child(even)::after { left: -68px; }
 
 @media (max-width: 768px) {
+    body{
+        overflow-x: hidden;
+    }
     .build-card::after { left: -28px !important; right: auto !important; }
+    .build-card:nth-child(even){
+        margin-left: 20px;
+        margin-top: 4rem;
+    }
+    .help{
+        overflow-x: hidden;
+    }
+    .mobile-links li a{
+        text-decoration: none;
+        color: var(--text-color);
+    }
 }
     
-@media (max-width: 768px) {
-    .build-card::after { left: -28px !important; right: auto !important; }
-}
-    
-@media (max-width: 768px) {
-    .build-card::after { left: -28px !important; right: auto !important; }
-}
-    
-@media (max-width: 768px) {
-    .build-card::after { left: -28px !important; right: auto !important; }
-}
+
     
