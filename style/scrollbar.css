@@ -1,0 +1,99 @@
+/* --- FULL SERVICE VISUAL SCROLLER CSS --- */
+
+.service-visual-section {
+    padding: 120px 0; /* Extra breathing room above/below */
+    background: #ffffff;
+    overflow: hidden;
+}
+
+.svc-scroll-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    
+    /* The "Fade Out" Mask: 
+       Creates transparent gradients at 0-5% and 95-100% of the container width.
+    */
+    mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+}
+
+.svc-scroll-track {
+    display: flex;
+    /* Track Math:
+       (Image width 700px + gap 15px) = 715px per item.
+       Total items = 8 (4 originals + 4 duplicates).
+       Total width = 5720px.
+    */
+    width: calc(715px * 8); 
+    animation: svc-scroll 30s linear infinite;
+    gap: 15px; /* Minimal spacing for a tight look */
+}
+
+/* Pauses the scroll when the user hovers over any image */
+.svc-scroll-track:hover {
+    animation-play-state: paused;
+}
+
+.svc-scroll-item {
+    width: 700px; /* Massive image width */
+    flex-shrink: 0;
+    text-align: center;
+    cursor: pointer;
+}
+
+.svc-scroll-item img {
+    width: 100%;
+    height: 450px; /* Proportionate height for 700px width */
+    object-fit: cover;
+    border-radius: 32px; /* Smooth, modern corners */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0);
+    transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.svc-scroll-item span {
+    display: block;
+    margin-top: 25px;
+    font-weight: 800;
+    font-size: 1.8rem; /* Bold text to match large visuals */
+    color: #1a1a1a;
+    letter-spacing: -1px;
+}
+
+/* Interactive Hover State */
+.svc-scroll-item:hover img {
+    transform: scale(1.02); /* Slight zoom so it doesn't overlap too much */
+    box-shadow: 0 30px 60px rgba(222, 221, 221, 0.18);
+}
+
+/* Infinite Loop Animation:
+   Moves the track to the left by the width of the first 4 items (2860px).
+   Once it hits 100%, it resets to 0 instantly, creating a seamless loop.
+*/
+@keyframes svc-scroll {
+    0% { 
+        transform: translateX(0); 
+    }
+    100% { 
+        /* (700px width + 15px gap) * 4 items = 2860px */
+        transform: translateX(calc(-715px * 4)); 
+    }
+}
+
+/* Responsive adjustments for tablet/mobile */
+@media (max-width: 1024px) {
+    .svc-scroll-item { width: 500px; }
+    .svc-scroll-item img { height: 350px; }
+    @keyframes svc-scroll {
+        100% { transform: translateX(calc(-515px * 4)); }
+    }
+}
+
+@media (max-width: 600px) {
+    .svc-scroll-item { width: 300px; }
+    .svc-scroll-item img { height: 200px; }
+    .svc-scroll-item span { font-size: 1.2rem; }
+    @keyframes svc-scroll {
+        100% { transform: translateX(calc(-315px * 4)); }
+    }
+}

@@ -520,10 +520,8 @@ h3 { margin: 5px 0; font-family: 'Inter', sans-serif; }
     }
 
     .headline {
-        width: 90%;
-        margin: 0 auto;
+        width: 100%;
         font-size: 2.2rem;
-        overflow-x: hidden;
     }
 
     .right, .left {
@@ -634,7 +632,7 @@ h3 { margin: 5px 0; font-family: 'Inter', sans-serif; }
 .footer-bottom {
     opacity: 0;
     transform: translateY(30px);
-    transition: opacity 1.8s cubic-bezier(0.25, 1, 0.5, 1), transform 1.8s cubic-bezier(0.25, 1, 0.5, 1);
+    transition: opacity 1.2s cubic-bezier(0.25, 1, 0.5, 1), transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
     will-change: opacity, transform;
 }
 
@@ -1077,9 +1075,10 @@ body.content-hidden > *:not(.top-nav):not(.mobile-menu-overlay):not(script):not(
 }
 
 body.hovering .cursor-dot {
-    background-color: rgba(77, 5, 253, 0.1);
+    width: 17px;
+    height: 17px;
     border-color: var(--accent2-color, #4da5fd);
-    box-shadow: 0 0 25 rgba(77, 165, 253, 0.4);
+    box-shadow: 0 0 25px rgba(77, 165, 253, 0.4);
 }
 
 /* --- BUILD CARD STAGGERED ANIMATION --- */
@@ -1149,6 +1148,7 @@ body.hovering .cursor-dot {
 }
 
 /* Color Variants for Dots */
+.build-card.blue::after { border-color: var(--accent2-color); }
 .build-card.teal::after { border-color: var(--teal); box-shadow: 0 0 0 4px rgba(79, 223, 154, 0.2); }
 .build-card.black::after { border-color: black; box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.1); }
 .build-card.yellow::after { border-color: var(--yellow); box-shadow: 0 0 0 4px rgba(253, 228, 4, 0.2); }
@@ -1156,34 +1156,25 @@ body.hovering .cursor-dot {
 /* Left Column */
 .build-card:nth-child(odd) {
     grid-column: 1;
-    margin-right:80px;
+    margin-right: 40px;
+    text-align: right;
 }
 .build-card:nth-child(odd)::after { right: -68px; }
 
+/* Right Column */
 .build-card:nth-child(even) {
+    grid-column: 2;
     margin-left: 40px;
+    margin-top: 80px; /* Stagger effect */
     text-align: left;
-    margin-top: 9rem;
 }
 .build-card:nth-child(even)::after { left: -68px; }
 
 @media (max-width: 768px) {
-    body{
-        overflow-x: hidden;
-    }
+    .build-cont { grid-template-columns: 1fr; gap: 30px; padding-left: 40px; }
+    .build-cont::before { left: 20px; }
+    .build-card { width: 100% !important; margin: 0 0 30px 0 !important; text-align: left !important; }
     .build-card::after { left: -28px !important; right: auto !important; }
-    .build-card:nth-child(even){
-        margin-left: 20px;
-        margin-top: 4rem;
-    }
-    .help{
-        overflow-x: hidden;
-    }
-    .mobile-links li a{
-        text-decoration: none;
-        color: var(--text-color);
-    }
+    .build-card:nth-child(even) { margin-top: 0; }
 }
-    
 
-    
