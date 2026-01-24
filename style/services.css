@@ -408,3 +408,15 @@
     .cw-features { grid-template-columns: 1fr; }
     .content-writing-section { padding: 60px 5%; }
 }
+
+/* --- FADE IN ANIMATION FOR CONTENT SECTIONS --- */
+.cw-image-wrapper, .cw-content {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.cw-image-wrapper.show, .cw-content.show {
+    opacity: 1;
+    transform: translateY(0);
+}
