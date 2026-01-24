@@ -451,11 +451,16 @@ h3 { margin: 5px 0; font-family: 'Inter', sans-serif; }
     width: 100%;
 }
 
+.mobile-links li a{
+    text-decoration: none;
+    color: #0d1821;
+}
 .mobile-links li {
     font-size: 1.2rem;
     font-weight: 600;
     color: #0d1821;
     cursor: pointer;
+    
     display: flex;
     align-items: center;
     gap: 8px;
@@ -1173,8 +1178,9 @@ body.hovering .cursor-dot {
 @media (max-width: 768px) {
     .build-cont { grid-template-columns: 1fr; gap: 30px; padding-left: 40px; }
     .build-cont::before { left: 20px; }
-    .build-card { width: 100% !important; margin: 0 0 30px 0 !important; text-align: left !important; }
+    .build-card {margin: 0 0 30px 0 !important; text-align: left !important; }
     .build-card::after { left: -28px !important; right: auto !important; }
     .build-card:nth-child(even) { margin-top: 0; }
+    
 }
 

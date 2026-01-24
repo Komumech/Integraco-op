@@ -29,11 +29,8 @@
     width: fit-content;
     display: flex;
 }
-.hero .headline {
-    font-size: 4rem;        /* Big, bold headline */
-    font-weight: 800;
-    width: 90%;
-    line-height: 1.2;       /* Adds spacing between lines of text */
+.hero .headline {    
+    width: 90%;      /* Adds spacing between lines of text */
     margin-bottom: 30px;    /* Adds space between text and the button */
     display: block !important; /* Ensures it isn't hidden by "content-hidden" */
 }
@@ -225,7 +222,6 @@
     margin: 0 auto;
 }
 .all .headline{
-    font-size: 5rem;
     height: fit-content;
     align-self: center;
     display: flex;
@@ -237,7 +233,11 @@
     0% { transform: scale(0.9) translateX(-20px); opacity: 0; }
     100% { transform: scale(1) translateX(0); opacity: 1; }
 }
-
+@media (max-width: 600px) {
+    .newsletter-form button {
+        width: 30%;
+    }
+}
 @media (max-width: 768px) {
     .svc-container{
         display: flex;
