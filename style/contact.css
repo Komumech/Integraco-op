@@ -5,6 +5,7 @@
     max-width: 550px;
 }
 
+
 /* Row for Name and Email */
 .input-row {
     display: grid;
@@ -194,9 +195,37 @@
     display: block;
 }
 
+/* Base hidden state for any element we want to animate */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    visibility: hidden;
+}
+
+/* Shown state triggered by JS */
+.reveal.show {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+}
+
+/* Staggered Delay Logic - Items inside a container will pop in one by one */
+.reveal:nth-child(1) { transition-delay: 0.1s; }
+.reveal:nth-child(2) { transition-delay: 0.2s; }
+.reveal:nth-child(3) { transition-delay: 0.3s; }
+.reveal:nth-child(4) { transition-delay: 0.4s; }
+.reveal:nth-child(5) { transition-delay: 0.5s; }
+
 
 /* Mobile & Phone Specific Styling */
 @media (max-width: 768px) {
+    .hero{
+    flex-direction: column-reverse;
+}
+.story{
+    flex-direction: column-reverse;
+}
     /* 1. Stack the Name and Email inputs vertically */
     .input-row {
         grid-template-columns: 1fr;
@@ -206,14 +235,18 @@
     /* 2. Adjust Input Group widths for mobile */
     .input-group, 
     .input-group[style*="width: 90%"] {
-        width: 100% !important; /* Forces full width on small screens */
+        width: 80% !important; /* Forces full width on small screens */
+    }
+
+    .integra-contact-form{
+        margin-left: 18px;
     }
 
     /* 3. Make the Submit Button full-width for easier tapping */
     .contact-submit,
     .contact-submit[style*="width: 30%"],
     .contact-submit[style*="width: 35%"] {
-        width: 100% !important;
+        width: 90% !important;
         padding: 15px;
         font-size: 1.1rem;
     }
@@ -238,12 +271,7 @@
         font-size: 14px;
     }
 
-    /* 7. Ensure images in the story grid don't overlap strangely */
-    .story-grid {
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-    }
+
 
     .story-card.offset {
         margin-top: 0 !important; /* Removes the desktop offset on mobile */

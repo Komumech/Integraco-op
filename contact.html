@@ -275,6 +275,38 @@ body{
     </div>
 </footer>
 
+<script>document.addEventListener('DOMContentLoaded', () => {
+    // 1. Setup the Observer
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // When element is in view, add 'show'
+                entry.target.classList.add('show');
+            } else {
+                // THIS MAKES IT REPEAT: When it leaves view, remove 'show'
+                // Optional: Only remove if you want the "fade out" effect when scrolling up
+                entry.target.classList.remove('show');
+            }
+        });
+    }, { 
+        threshold: 0.15, // Trigger when 15% of the element is visible
+        rootMargin: "0px 0px -50px 0px" // Slight offset so it doesn't trigger too early
+    });
+
+    // 2. Select all elements with the 'reveal' class
+    const revealElements = document.querySelectorAll('.reveal');
+    
+    // 3. Also target your specific existing containers if you don't want to manually add classes
+    const autoReveal = document.querySelectorAll('.story-card, .s-info-item, .footer-col, .stack-card');
+    
+    // Apply the observer to everything
+    [...revealElements, ...autoReveal].forEach(el => {
+        el.classList.add('reveal'); // Ensure the base style is applied
+        revealObserver.observe(el);
+    });
+});
+</script>
+
 <script>
     document.addEventListener('DOMContentLoaded', () => {
     // Select cards and the text elements
