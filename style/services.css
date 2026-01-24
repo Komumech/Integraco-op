@@ -4,22 +4,24 @@
     background-color: #fdfdfd;
 }
 /* --- HERO SECTION FIXES --- */
-.hero {
-    height: 100vh;
-    display: flex;
-    align-items: center;    /* Vertical center */
-    justify-content: center; /* Horizontal center */
-    text-align: center;
+.hero{
+    min-height: 85vh;
 }
 
-.hero .all {
-    display: flex;
-    flex-direction: column;
-    align-items: center;    /* Aligns text and buttons in a straight line */
-    justify-content: center;
-    max-width: 900px;
-    padding: 0 20px;
+/* Target the button when hovered, then change the icon inside */
+.arrow-submit-btn:hover i {
+    color: #ffffff; /* This turns the arrow white */
+    transition: all 0.3 ease-in-out; /* This makes the color change smoothly */
 }
+
+/* Optional: Ensure the icon has a transition property 
+   on its default state for a smooth return to original color */
+.arrow-submit-btn i {
+    z-index: 999;
+    transition: color 0.3s ease;
+}
+
+
 .newsletter-section{
     margin: 0;
 }

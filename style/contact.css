@@ -1,0 +1,251 @@
+/* Form Container spacing */
+.contact-form-container {
+    margin-top: 30px;
+    width: 100%;
+    max-width: 550px;
+}
+
+/* Row for Name and Email */
+.input-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+/* Individual Input Groups */
+.input-group {
+    position: relative;
+    margin-bottom: 25px;
+    
+}
+
+/* Styling Inputs, Select, and Textarea */
+.integra-contact-form input,
+.integra-contact-form select,
+.integra-contact-form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    background: rgba(255, 255, 255, 0.05); /* Soft glass effect */
+    border: 1.5px solid rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    font-size: 16px;
+    color: #333;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+/* Floating Label Logic */
+.input-group label {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.input-group textarea ~ label {
+    top: 20px;
+}
+
+/* Focus & "Value Present" States */
+.integra-contact-form input:focus,
+.integra-contact-form textarea:focus {
+    border-color: #004aad; /* Integra Brand Color */
+    background: #fff;
+    box-shadow: 0 5px 15px rgba(0, 74, 173, 0.1);
+}
+
+/* Label movement on focus or typing */
+.input-group input:focus ~ label,
+.input-group input:not(:placeholder-shown) ~ label,
+.input-group textarea:focus ~ label,
+.input-group textarea:not(:placeholder-shown) ~ label {
+    top: -10px;
+    left: 10px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #004aad;
+    background: white;
+    padding: 0 5px;
+}
+
+/* Submit Button Customizations */
+.contact-submit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+    border: none;
+    width: 100%;
+}
+
+/* 1. Reset the Select Appearance */
+.integra-contact-form select {
+    appearance: none; /* Removes the default browser arrow */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23004aad' stroke-width='2'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M19.5 8.25l-7.5 7.5-7.5-7.5'/%3E%3C/svg%3E"); /* Custom Blue Arrow */
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 18px;
+    padding-right: 40px; /* Space for the arrow */
+}
+
+/* 2. Style the Dropdown when it is clicked (Open) */
+.integra-contact-form select:focus {
+    border-color: #004aad;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 4px rgba(0, 74, 173, 0.1); /* Soft outer glow */
+    outline: none;
+}
+
+/* 3. Style the "Options" list (Limited styling possible here) */
+.integra-contact-form select option {
+    background-color: #ffffff;
+    color: #333;
+    padding: 10px;
+}
+
+/* 4. Hover effect for the entire input group */
+.input-group:hover select {
+    border-color: rgba(0, 74, 173, 0.5);
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+/* 5. Validation Highlight: If user picks an option, make the text bolder */
+.integra-contact-form select:not(:invalid) {
+    color: #004aad;
+    font-weight: 500;
+}
+
+/* 6. Professional subtle animation on the custom arrow */
+.integra-contact-form select:active {
+    background-position: right 15px bottom 45%;
+    transition: background-position 0.1s ease;
+}
+
+.contact-submit i {
+    font-size: 14px;
+    transition: transform 0.3s ease;
+}
+
+.contact-submit:hover i {
+    transform: translateX(5px) translateY(-5px); /* Slant plane effect */
+    color: white;
+}
+/* Story Contact Box Styling */
+.story-contact-box {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.s-info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    transition: transform 0.3s ease;
+}
+
+.s-info-item:hover {
+    transform: translateX(10px); /* Subtle slide effect on hover */
+}
+
+.s-info-item i {
+    font-size: 20px;
+    color: #004aad; /* Integra Blue */
+    margin-top: 3px;
+    width: 25px;
+    text-align: center;
+}
+
+.s-info-text strong {
+    display: block;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #888;
+    margin-bottom: 2px;
+}
+
+.s-info-text span, 
+.s-info-text span a {
+    font-size: 16px;
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.s-info-text a:hover {
+    color: #004aad;
+}
+
+/* Ensure the story grid images look sharp */
+.story-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+    display: block;
+}
+
+
+/* Mobile & Phone Specific Styling */
+@media (max-width: 768px) {
+    /* 1. Stack the Name and Email inputs vertically */
+    .input-row {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    /* 2. Adjust Input Group widths for mobile */
+    .input-group, 
+    .input-group[style*="width: 90%"] {
+        width: 100% !important; /* Forces full width on small screens */
+    }
+
+    /* 3. Make the Submit Button full-width for easier tapping */
+    .contact-submit,
+    .contact-submit[style*="width: 30%"],
+    .contact-submit[style*="width: 35%"] {
+        width: 100% !important;
+        padding: 15px;
+        font-size: 1.1rem;
+    }
+
+    /* 4. Increase touch targets for the dropdown and inputs */
+    .integra-contact-form input,
+    .integra-contact-form select,
+    .integra-contact-form textarea {
+        font-size: 16px; /* Prevents iOS from auto-zooming into the input */
+        padding: 14px 15px;
+    }
+
+    /* 5. Adjust the Story Contact Box spacing */
+    .story-contact-box {
+        margin-top: 30px;
+        gap: 20px;
+        padding-left: 5px;
+    }
+
+    /* 6. Fix for Floating Labels on Mobile */
+    .input-group label {
+        font-size: 14px;
+    }
+
+    /* 7. Ensure images in the story grid don't overlap strangely */
+    .story-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .story-card.offset {
+        margin-top: 0 !important; /* Removes the desktop offset on mobile */
+    }
+} 
