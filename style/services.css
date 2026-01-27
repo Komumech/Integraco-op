@@ -33,7 +33,7 @@
 }
 .hero .headline {    
     width: 90%;      /* Adds spacing between lines of text */
-    margin-bottom: 30px;    /* Adds space between text and the button */
+    margin: 0 auto;    /* Adds space between text and the button */
     display: block !important; /* Ensures it isn't hidden by "content-hidden" */
 }
 

@@ -499,7 +499,7 @@ h3 { margin: 5px 0; font-family: 'Inter', sans-serif; }
 }
 
 /* Responsive Media Queries */
-@media (max-width: 768px) {
+@media (max-width: 868px) {
     .logo{
         padding-left: 20px;
     }
