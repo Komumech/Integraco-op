@@ -1055,7 +1055,9 @@ body.content-hidden > *:not(.top-nav):not(.mobile-menu-overlay):not(script):not(
     pointer-events: none;
     display: none; /* Hidden on touch devices via media query usually, or JS detection */
 }
-
+@media (max-width: 768px) {
+    .cursor-dot, .cursor-outline { display: none; }
+}
 @media (pointer: fine) {
     .cursor-dot, .cursor-outline { display: block; }
     body { cursor: none; } /* Hide default cursor */
