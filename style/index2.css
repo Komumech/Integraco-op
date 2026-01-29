@@ -659,7 +659,6 @@ h3 { margin: 5px 0; font-family: 'Inter', sans-serif; }
 
 /* --- NEWSLETTER SECTION (Updated with Floating Circles) --- */
 .newsletter-section {
-    margin-top: 4rem;
     background: linear-gradient(135deg, #4da5fd 0%, #0077cc 100%); /* Enhanced gradient */
     color: white;
     padding: 80px 20px;
@@ -887,7 +886,6 @@ h3 { margin: 5px 0; font-family: 'Inter', sans-serif; }
 }
 
 .footer-sub-btn {
-    padding: 12px 30px;
     background-color: transparent;
     border: 1px solid #333;
     color: white;
