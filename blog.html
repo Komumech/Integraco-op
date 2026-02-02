@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/style/index2.css">
+    <link rel="stylesheet" href="/style/blog.css">
+    <title>INTEGRA CO-OP | Financial Insights & News</title>
+    <link rel="icon" href="https://integraco-op.vercel.app/logo2.png" type="image/png">
+</head>
+<style>
+    :root{
+        --accent-color: #1a1a1a;
+        --accent2-color: #4da5fd;
+        --accent3-color: #000ac2;
+        --text-color: #292a2e;
+        --card-bg-color: rgb(255, 255, 255);
+    }
+    body{ margin: 0px; }
+    .top-nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+        transition: background-color 0.3s ease-in-out;
+    }
+    .top-nav.scrolled {
+        background-color: white;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+</style>
+<body class="content-hidden">
+    <div class="cursor-dot"></div>
+
+    <nav class="top-nav">
+        <div class="logo">
+            <img src="https://integraco-op.vercel.app/logo.png" alt="" srcset="">
+        </div>
+        <div class="navlinks">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="services.html">Products</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+        <div class="btn-group first">
+            <a class="cta1 wave-btn"><span class="btn-text">Learn More</span></a>
+            <a href="https://integra.ng/app/auth/" class="cta2 wave-btn" style="text-decoration: none;"><span class="btn-text">Join Now</span></a>
+        </div>
+        <div class="hamburger">
+            <span></span><span></span><span></span>
+        </div>
+    </nav>
+
+    <div class="mobile-menu-overlay">
+        <div class="mobile-header">
+            <div class="logo"><img src="https://integraco-op.vercel.app/logo.png" alt="Logo"></div>
+            <div class="close-menu">&times;</div>
+        </div>
+        <ul class="mobile-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Products</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="blog.html">Blog</a></li>
+        </ul>
+        <div class="mobile-auth">
+            <a href="https://integra.ng/app/auth/" class="m-btn m-btn-outline">Sign in</a>
+            <a href="https://integra.ng/app/auth/?type=register" class="m-btn m-btn-fill">Create an account</a>
+        </div>
+    </div>
+
+    <!-- Blog Hero -->
+    <div class="blog-hero">
+        <div class="blog-hero-content">
+            <span class="blog-badge">Financial Literacy</span>
+            <h1>Insights for Your <br><span class="typing-text">Financial Growth.</span></h1>
+            <p class="subline">Expert advice, cooperative news, and strategies to help you build sustainable wealth.</p>
+        </div>
+    </div>
+
+    <!-- Blog Grid -->
+ <div class="blog-section">
+        <div class="blog-grid">
+            <article class="blog-card">
+                <div class="blog-img">
+                    <img src="img51.png" alt="Automated Savings">
+                    <span class="category-tag">Savings</span>
+                </div>
+                <div class="blog-content">
+                    <span class="date">Oct 24, 2025</span>
+                    <h3>5 Ways to Automate Your Savings in 2025</h3>
+                    <p>Discover how setting up automated deductions can help you reach your financial goals without manual stress.</p>
+                    <a href="#" class="read-more">Read Article <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-img">
+                    <img src="img52.png" alt="Stock Market Charts">
+                    <span class="category-tag">Investment</span>
+                </div>
+                <div class="blog-content">
+                    <span class="date">Oct 10, 2025</span>
+                    <h3>Understanding Cooperative Dividends</h3>
+                    <p>What are dividends, and how are they calculated? Learn how your membership translates to annual returns.</p>
+                    <a href="#" class="read-more">Read Article <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-img">
+                    <img src="img53.png" alt="Small Business Meeting">
+                    <span class="category-tag">Business</span>
+                </div>
+                <div class="blog-content">
+                    <span class="date">Sep 28, 2025</span>
+                    <h3>Scaling Your SME with Low-Interest Loans</h3>
+                    <p>Learn how INTEGRA's credit facilities are designed to help your small business grow sustainably.</p>
+                    <a href="#" class="read-more">Read Article <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-img">
+                    <img src="img54.png" alt="Tax and Planning">
+                    <span class="category-tag">Planning</span>
+                </div>
+                <div class="blog-content">
+                    <span class="date">Sep 05, 2025</span>
+                    <h3>The Beginner’s Guide to Tax Efficiency</h3>
+                    <p>Maximize your take-home pay by understanding the legal tax reliefs available to cooperative members.</p>
+                    <a href="#" class="read-more">Read Article <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-img">
+                    <img src="img55.png" alt="Modern Housing">
+                    <span class="category-tag">Real Estate</span>
+                </div>
+                <div class="blog-content">
+                    <span class="date">Aug 22, 2025</span>
+                    <h3>Co-owning Property: A New Way to Invest</h3>
+                    <p>Explore how cooperative real estate schemes make property ownership accessible for everyone.</p>
+                    <a href="#" class="read-more">Read Article <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-img">
+                    <img src="img56.png" alt="Retirement Lifestyle">
+                    <span class="category-tag">Lifestyle</span>
+                </div>
+                <div class="blog-content">
+                    <span class="date">Aug 10, 2025</span>
+                    <h3>Retiring Early: Myths vs. Reality</h3>
+                    <p>Financial independence is a journey. We look at the actual math required to retire comfortably before 50.</p>
+                    <a href="#" class="read-more">Read Article <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- Hidden articles for "Load More" -->
+            <article class="blog-card hidden-article">
+                <div class="blog-img">
+                    <img src="https://images.unsplash.com/photo-1543286386-713bdd548da4?auto=format&fit=crop&w=800&q=80" alt="Community Growth">
+                    <span class="category-tag">Community</span>
+                </div>
+                <div class="blog-content">
+                    <span class="date">July 29, 2025</span>
+                    <h3>The Power of Collective Investment</h3>
+                    <p>Alone we can do so little; together we can do so much. See how pooled resources are creating wealth for our members.</p>
+                    <a href="#" class="read-more">Read Article <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <article class="blog-card hidden-article">
+                <div class="blog-img">
+                    <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800&q=80" alt="Partnership Handshake">
+                    <span class="category-tag">Partnership</span>
+                </div>
+                <div class="blog-content">
+                    <span class="date">July 15, 2025</span>
+                    <h3>INTEGRA Partners with Agri-Tech Startups</h3>
+                    <p>We're excited to announce new investment channels in sustainable agriculture, boosting food security and member returns.</p>
+                    <a href="#" class="read-more">Read Article <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <article class="blog-card hidden-article">
+                <div class="blog-img">
+                    <img src="https://images.unsplash.com/photo-1553729459-efe14ef6055d?auto=format&fit=crop&w=800&q=80" alt="Piggy bank with coins">
+                    <span class="category-tag">Savings</span>
+                </div>
+                <div class="blog-content">
+                    <span class="date">June 30, 2025</span>
+                    <h3>Halal Savings: An Ethical Approach to Finance</h3>
+                    <p>Learn about our Sharia-compliant savings and investment options designed for ethical wealth creation.</p>
+                    <a href="#" class="read-more">Read Article <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </article>
+        </div>
+        
+        <div class="pagination">
+            <button class="wave-btn"><span class="btn-text">Load More Articles</span></button>
+        </div>
+    </div>
+
+    <footer class="main-footer">
+        <div class="footer-top">
+            <div class="footer-newsletter">
+                <h3>Sign up for our newsletter</h3>
+                <p>Don't worry, we reserve our newsletter for important news as we only send a few updates a year.</p>
+                <button class="footer-sub-btn wave-btn"><span class="btn-text">Subscribe</span></button>
+            </div>
+            <div class="footer-nav">
+                <div class="footer-col">
+                    <h4>Help and services</h4>
+                    <ul>
+                        <li><a href="#">How does it work</a></li>
+                        <li><a href="faq.html">FAQs</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>To explore</h4>
+                    <ul>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 INTEGRA CO-OP. All rights reserved.</p>
+            <div class="footer-socials">
+                <a href="https://www.facebook.com/integra.coop.3/"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.instagram.com/integracoop.ng"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="articleModal" class="article-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div id="modalData" class="modal-body">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 1. General Page Animations
+        const pageObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                }
+            });
+        }, { threshold: 0.1 });
+    
+        const scrollElements = document.querySelectorAll('.blog-card, .blog-hero-content, .footer-top, .footer-bottom');
+        scrollElements.forEach(el => pageObserver.observe(el));
+    
+        // 2. Navigation Scroll Effect
+        const nav = document.querySelector('.top-nav');
+        window.addEventListener('scroll', () => {
+            window.scrollY > 10 ? nav.classList.add('scrolled') : nav.classList.remove('scrolled');
+        });
+    
+        // 3. Mobile Menu
+        const hamburger = document.querySelector('.hamburger');
+        const mobileMenu = document.querySelector('.mobile-menu-overlay');
+        const closeMenu = document.querySelector('.close-menu');
+    
+        hamburger?.addEventListener('click', () => mobileMenu.classList.add('active'));
+        closeMenu?.addEventListener('click', () => mobileMenu.classList.remove('active'));
+    
+        // 4. Button Hover Effect
+        document.querySelectorAll('.wave-btn').forEach(btn => {
+            btn.addEventListener('mousemove', (e) => {
+                const rect = btn.getBoundingClientRect();
+                btn.style.setProperty('--x', `${e.clientX - rect.left}px`);
+                btn.style.setProperty('--y', `${e.clientY - rect.top}px`);
+            });
+        });
+    
+        // 5. Typing Effect
+        const typeText = document.querySelector('.typing-text');
+        const words = ["Financial Growth.", "Success.", "Knowledge."];
+        let wordIndex = 0;
+        let charIndex = words[0].length;
+        let isDeleting = true;
+    
+        function typeEffect() {
+            if (!typeText) return;
+            const currentWord = words[wordIndex];
+            
+            if (isDeleting) {
+                charIndex--;
+                typeText.textContent = currentWord.substring(0, charIndex);
+            } else {
+                charIndex++;
+                typeText.textContent = currentWord.substring(0, charIndex);
+            }
+    
+            let typeSpeed = isDeleting ? 75 : 150;
+    
+            if (!isDeleting && charIndex === currentWord.length) {
+                isDeleting = true;
+                typeSpeed = 2000;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                wordIndex = (wordIndex + 1) % words.length;
+                typeSpeed = 500;
+            }
+    
+            setTimeout(typeEffect, typeSpeed);
+        }
+        if(typeText) setTimeout(typeEffect, 2000);
+    
+        // 6. Active Link Highlighter
+        const currentPath = window.location.pathname.split("/").pop();
+        const navLinks = document.querySelectorAll('.navlinks ul li a[href]');
+        
+        navLinks.forEach(link => {
+            const href = link.getAttribute('href');
+            const pathName = currentPath.toLowerCase().replace('.html', '');
+            const linkName = href.toLowerCase().replace('.html', '');
+    
+            if (pathName === linkName || (linkName === 'index' && pathName === '')) {
+                link.classList.add('active');
+            }
+        });
+    
+        // 7. Custom Cursor Logic
+        const cursorDot = document.querySelector('.cursor-dot');
+        if (window.matchMedia("(pointer: fine)").matches) {
+            window.addEventListener('mousemove', (e) => {
+                cursorDot.style.left = `${e.clientX}px`;
+                cursorDot.style.top = `${e.clientY}px`;
+            });
+    
+            const interactiveEls = document.querySelectorAll('a, button, .blog-card');
+            interactiveEls.forEach(el => {
+                el.addEventListener('mouseenter', () => document.body.classList.add('hovering'));
+                el.addEventListener('mouseleave', () => document.body.classList.remove('hovering'));
+            });
+        }
+    
+        // 8. Page Transition Logic
+        window.addEventListener('load', () => {
+            document.body.classList.remove('content-hidden');
+        });
+
+        // This logic handles the fade-out/fade-in between pages.
+        document.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', e => {
+                const href = link.getAttribute('href');
+                // Check if it's an internal link, not an anchor, not a modal trigger, and not opening in a new tab.
+                if(href && !href.startsWith('#') && !link.classList.contains('read-more') && link.target !== '_blank') {
+                    e.preventDefault();
+                    document.body.classList.add('content-hidden');
+                    setTimeout(() => {
+                        window.location.href = href;
+                    }, 600);
+                }
+            });
+        });
+
+        // --- 9. MODAL & LOAD MORE LOGIC ---
+        const modal = document.getElementById('articleModal');
+        const closeModalBtn = document.querySelector('.close-modal');
+        const modalDataContainer = document.getElementById('modalData');
+        const loadMoreBtn = document.querySelector('.pagination .wave-btn');
+
+        // Function to open the modal and populate it with data
+        const openModal = (card) => {
+            const imageSrc = card.querySelector('.blog-img img').src;
+            const category = card.querySelector('.category-tag').textContent;
+            const date = card.querySelector('.date').textContent;
+            const title = card.querySelector('h3').textContent;
+            const content = card.querySelector('p').textContent;
+
+            modalDataContainer.innerHTML = `
+                <img src="${imageSrc}" alt="${title}">
+                <span class="blog-badge">${category}</span>
+                <h2>${title}</h2>
+                <span class="date">${date}</span>
+                <p>${content}</p>
+                <hr style="margin: 20px 0; border: 0; border-top: 1px solid #eee;">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <h3>Key Takeaways</h3>
+                <ul>
+                    <li>Understanding the fundamentals of ${category}.</li>
+                    <li>Strategies for long-term success.</li>
+                    <li>Risk management and diversification.</li>
+                </ul>
+                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+                <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.</p>
+            `;
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        };
+
+        const closeModal = () => {
+            modal.style.display = 'none';
+            document.body.style.overflow = ''; // Restore scrolling
+        };
+
+        // Use event delegation on the grid for dynamically loaded articles
+        document.querySelector('.blog-grid').addEventListener('click', (e) => {
+            const readMoreLink = e.target.closest('.read-more');
+            if (readMoreLink) {
+                e.preventDefault();
+                const card = readMoreLink.closest('.blog-card');
+                openModal(card);
+            }
+        });
+
+        closeModalBtn.addEventListener('click', closeModal);
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.style.display === 'flex') closeModal();
+        });
+
+        // Load More Functionality
+        loadMoreBtn?.addEventListener('click', () => {
+            const hiddenCards = document.querySelectorAll('.blog-card.hidden-article');
+            const cardsToShow = 3;
+            for (let i = 0; i < cardsToShow && i < hiddenCards.length; i++) {
+                hiddenCards[i].classList.remove('hidden-article');
+                pageObserver.observe(hiddenCards[i]);
+            }
+            if (document.querySelectorAll('.blog-card.hidden-article').length === 0) {
+                loadMoreBtn.parentElement.style.display = 'none';
+            }
+        });
+    </script>
+
+
+</body>
+</html>

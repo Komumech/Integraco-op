@@ -1207,5 +1207,9 @@ body.hovering .cursor-dot {
     .hero .headline{
         margin: 0 auto;
     }
+    .green-img{
+        height: 100%;
+        width: 100%;
+    }
 }
 
