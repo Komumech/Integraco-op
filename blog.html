@@ -377,31 +377,130 @@
         const modalDataContainer = document.getElementById('modalData');
         const loadMoreBtn = document.querySelector('.pagination .wave-btn');
 
+        // Article Content Database
+        const articleDB = {
+            "5 Ways to Automate Your Savings in 2025": `
+                <p>Saving money requires discipline, but relying on willpower alone often leads to inconsistency. In 2025, the most effective way to build wealth is to remove the manual effort from the equation.</p>
+                <h3>Why Automation Works</h3>
+                <p>Automation is the secret weapon of the financially secure. By setting up systems that move money into your savings accounts before you have a chance to spend it, you prioritize your future self. It adheres to the golden rule of personal finance: "Pay yourself first."</p>
+                <h3>Strategies for Success</h3>
+                <ul>
+                    <li><strong>Salary Source Deductions:</strong> The classic cooperative model. Authorize a direct deduction so savings are treated as a mandatory expense.</li>
+                    <li><strong>Target Savings:</strong> Use the INTEGRA app to set specific goals (Rent, Fees, Travel) with automated daily or weekly debits.</li>
+                    <li><strong>Dividend Reinvestment:</strong> Automatically reinvest your annual dividends to harness the power of compound interest.</li>
+                </ul>
+                <p>By automating these processes, you eliminate the temptation to skip a month and ensure steady growth towards your financial freedom.</p>
+            `,
+            "Understanding Cooperative Dividends": `
+                <p>One of the most attractive benefits of joining a cooperative like INTEGRA is the potential for earning dividends. Unlike traditional bank interest, dividends are a share of the cooperative's surplus profits distributed to members.</p>
+                <h3>How It Works</h3>
+                <p>At the end of every financial year, the cooperative declares a surplus after expenses and statutory reserves. This surplus is then shared among members based on their participation.</p>
+                <h3>Key Factors Affecting Your Dividends</h3>
+                <ul>
+                    <li><strong>Savings Volume:</strong> The more capital you contribute to the pool, the higher your potential return.</li>
+                    <li><strong>Loan Repayment History:</strong> Members who take loans and repay them with interest contribute to the cooperative's income, which fuels the dividend pool.</li>
+                    <li><strong>Duration:</strong> Funds held for longer periods often attract better weightings in dividend calculation.</li>
+                </ul>
+                <p>Dividends are not just profit; they are a reward for your loyalty and active participation in the community's growth.</p>
+            `,
+            "Scaling Your SME with Low-Interest Loans": `
+                <p>Access to affordable capital is the biggest hurdle for Small and Medium Enterprises (SMEs) in Nigeria. Commercial banks often demand double-digit interest rates and impossible collateral. INTEGRA CO-OP offers a different path.</p>
+                <h3>The Cooperative Advantage</h3>
+                <p>Because we are member-owned, our goal isn't predatory profit but mutual growth. We offer loans at significantly lower rates than commercial institutions, specifically designed to help you scale operations, restock inventory, or purchase equipment.</p>
+                <h3>Best Practices for SME Loans</h3>
+                <ul>
+                    <li><strong>Separate Personal and Business Finances:</strong> Ensure the loan is used strictly for business growth to guarantee repayment capacity.</li>
+                    <li><strong>Have a Repayment Plan:</strong> Analyze your cash flow to ensure you can meet monthly obligations without choking the business.</li>
+                    <li><strong>Start Small:</strong> Build a credit history with smaller loans before applying for major facility upgrades.</li>
+                </ul>
+                <p>Your growth is our growth. When your business thrives, the entire cooperative ecosystem becomes stronger.</p>
+            `,
+            "The Beginner’s Guide to Tax Efficiency": `
+                <p>It's not just about how much you earn, but how much you keep. Understanding tax efficiency is crucial for building long-term wealth.</p>
+                <h3>Cooperative Tax Benefits</h3>
+                <p>In many jurisdictions, cooperative societies enjoy certain tax exemptions on their income, which allows them to pass more value back to members. Additionally, dividends received from a cooperative society are often tax-exempt in the hands of the receiver in Nigeria.</p>
+                <h3>Strategic Planning</h3>
+                <ul>
+                    <li><strong>Voluntary Contributions:</strong> Increasing your savings can sometimes serve as a tax-efficient way to store wealth compared to other taxable investment vehicles.</li>
+                    <li><strong>Long-term Investments:</strong> Engaging in long-term infrastructure funds through the cooperative can offer better net returns than short-term taxable instruments.</li>
+                </ul>
+                <p><em>Disclaimer: Always consult with a qualified tax consultant for advice specific to your personal financial situation.</em></p>
+            `,
+            "Co-owning Property: A New Way to Invest": `
+                <p>Real estate remains one of the safest hedges against inflation, but the barrier to entry is high. Buying a plot of land or a building often requires millions in upfront capital. Co-ownership changes the game.</p>
+                <h3>What is Co-ownership?</h3>
+                <p>Through INTEGRA's real estate schemes, members pool resources to acquire high-value properties. You purchase "slots" or units of a property rather than the whole thing.</p>
+                <h3>Benefits</h3>
+                <ul>
+                    <li><strong>Affordability:</strong> Invest in prime real estate with a fraction of the cost.</li>
+                    <li><strong>Diversification:</strong> Instead of sinking all your money into one land, you can own slots in multiple locations.</li>
+                    <li><strong>Hassle-Free Management:</strong> The cooperative handles documentation, security, and maintenance.</li>
+                </ul>
+                <p>Whether for land banking (resale appreciation) or rental income, co-ownership democratizes access to the property market.</p>
+            `,
+            "Retiring Early: Myths vs. Reality": `
+                <p>The FIRE (Financial Independence, Retire Early) movement is gaining traction, but is it realistic? Retiring early doesn't mean you stop working; it means you work because you want to, not because you have to.</p>
+                <h3>The Math of Early Retirement</h3>
+                <p>To retire early, you generally need a nest egg of 25 times your annual expenses. This requires an aggressive savings rate—often 50% or more of your income.</p>
+                <h3>How INTEGRA Helps</h3>
+                <ul>
+                    <li><strong>High-Yield Savings:</strong> Our competitive interest rates help your money grow faster than in a standard savings account.</li>
+                    <li><strong>Low-Cost Lifestyle:</strong> The cooperative community encourages prudent financial habits, helping you keep expenses low.</li>
+                    <li><strong>Passive Income:</strong> Investments in our pooled funds generate the passive income needed to replace your salary.</li>
+                </ul>
+                <p>Start today. The earlier you begin compounding your returns, the sooner you reach financial freedom.</p>
+            `,
+            "The Power of Collective Investment": `
+                <p>"Alone we can do so little; together we can do so much." This quote by Helen Keller summarizes the essence of cooperative investment.</p>
+                <h3>Why Pool Funds?</h3>
+                <p>High-yield investment instruments like Commercial Papers, Treasury Bills, or large-scale Agriculture projects often have high minimum entry thresholds (e.g., N5 million and above). An individual saver might not have this liquidity.</p>
+                <h3>The INTEGRA Solution</h3>
+                <p>By pooling small contributions from thousands of members, INTEGRA creates a massive capital block. We can then negotiate better rates with fund managers and access exclusive opportunities reserved for institutional investors.</p>
+                <p>You get the returns of a high-net-worth investor with the capital of a salary earner. That is the power of the collective.</p>
+            `,
+            "INTEGRA Partners with Agri-Tech Startups": `
+                <p>We are thrilled to announce our latest strategic partnership focused on sustainable agriculture. Food security is a major global challenge, and it presents a stable investment opportunity.</p>
+                <h3>Why Agri-Tech?</h3>
+                <p>Traditional farming has risks. Agri-tech mitigates these through data-driven farming, improved seedlings, and mechanized processes. Our partners provide the technology; we provide the capital.</p>
+                <h3>What This Means for Members</h3>
+                <ul>
+                    <li><strong>Ethical Investing:</strong> Your money is supporting real production and feeding the nation.</li>
+                    <li><strong>Insured Returns:</strong> All our agricultural investments are backed by insurance to protect member capital against yield loss.</li>
+                    <li><strong>Diversification:</strong> Add an asset class to your portfolio that is not correlated with the stock market.</li>
+                </ul>
+            `,
+            "Halal Savings: An Ethical Approach to Finance": `
+                <p>Financial inclusion means catering to everyone. We understand that for many of our members, interest (Riba) is not compatible with their beliefs. That is why we offer Halal Savings options.</p>
+                <h3>How It Differs</h3>
+                <p>Instead of a fixed interest rate, Halal savings are based on <strong>Profit and Loss Sharing (PLS)</strong>. Funds are invested in ethical, Sharia-compliant ventures (real estate, trade, ethical commodities).</p>
+                <h3>Transparency is Key</h3>
+                <p>We ensure that these funds are never mixed with interest-bearing accounts or invested in prohibited industries (alcohol, gambling, etc.). Returns are distributed based on the actual performance of the investment.</p>
+                <p>This allows our members to grow their wealth without compromising their values.</p>
+            `
+        };
+
         // Function to open the modal and populate it with data
         const openModal = (card) => {
             const imageSrc = card.querySelector('.blog-img img').src;
             const category = card.querySelector('.category-tag').textContent;
             const date = card.querySelector('.date').textContent;
             const title = card.querySelector('h3').textContent;
-            const content = card.querySelector('p').textContent;
+            
+            // Retrieve content from DB or use a default fallback
+            const contentHTML = articleDB[title] || `
+                <p>Thank you for your interest in <strong>${title}</strong>.</p>
+                <p>The full details of this article are currently being updated by our editorial team. Please check back shortly for the complete guide.</p>
+                <p>At INTEGRA CO-OP, we are committed to providing you with accurate and actionable financial insights.</p>
+            `;
 
             modalDataContainer.innerHTML = `
                 <img src="${imageSrc}" alt="${title}">
                 <span class="blog-badge">${category}</span>
                 <h2>${title}</h2>
                 <span class="date">${date}</span>
-                <p>${content}</p>
-                <hr style="margin: 20px 0; border: 0; border-top: 1px solid #eee;">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                <h3>Key Takeaways</h3>
-                <ul>
-                    <li>Understanding the fundamentals of ${category}.</li>
-                    <li>Strategies for long-term success.</li>
-                    <li>Risk management and diversification.</li>
-                </ul>
-                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-                <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.</p>
+                <div class="article-body">
+                    ${contentHTML}
+                </div>
             `;
             modal.style.display = 'flex';
             document.body.style.overflow = 'hidden'; // Prevent background scrolling
