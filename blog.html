@@ -70,6 +70,7 @@
             <li><a href="blog.html">Blog</a></li>
         </ul>
         <div class="mobile-auth">
+            <a href="https://play.google.com/store/apps/details?id=ng.integra.app&hl=en" class="m-btn m-btn-outline" style="background: #004aad; color: white; border: none;"><i class="fa-brands fa-google-play" style="margin-right: 8px;"></i> Get the App</a>
             <a href="https://integra.ng/app/auth/" class="m-btn m-btn-outline">Sign in</a>
             <a href="https://integra.ng/app/auth/?type=register" class="m-btn m-btn-fill">Create an account</a>
         </div>
@@ -364,6 +365,12 @@
                 if(href && !href.startsWith('#') && !link.classList.contains('read-more') && link.target !== '_blank') {
                     e.preventDefault();
                     document.body.classList.add('content-hidden');
+                    
+                    // Safety fallback: if navigation takes too long (3s), reveal the page again
+                    setTimeout(() => {
+                        document.body.classList.remove('content-hidden');
+                    }, 3000);
+
                     setTimeout(() => {
                         window.location.href = href;
                     }, 600);

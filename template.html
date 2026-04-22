@@ -474,6 +474,12 @@ body{
                 if(href && !href.startsWith('#') && !href.startsWith('mailto:') && link.target !== '_blank') {
                     e.preventDefault();
                     document.body.classList.add('content-hidden');
+                    
+                    // Safety fallback: if navigation takes too long (3s), reveal the page again
+                    setTimeout(() => {
+                        document.body.classList.remove('content-hidden');
+                    }, 3000);
+
                     setTimeout(() => {
                         window.location.href = href;
                     }, 600); // Match CSS transition duration
